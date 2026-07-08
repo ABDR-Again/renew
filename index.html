@@ -1,616 +1,1338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Physician-Led Pain Care in Hollywood, FL | RENEW Pain &amp; Wellness</title>
-<meta name="description" content="Physician-led, medically supervised pain management in Hollywood, Florida. Call RENEW Pain &amp; Wellness at (954) 256-9422.">
-<link rel="icon" type="image/webp" href="./assets/optimize/favicon.webp">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#02333a">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Physician-led pain relief in Hollywood, Florida. Call RENEW or request a callback.">
+  <title>RENEW Pain &amp; Wellness Center | Hollywood, FL</title>
+  <link rel="icon" type="image/webp" href="./assets/optimize/favicon.webp">
 
-<link rel="preload" href="./assets/fonts/outfit-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <!--
+    FONT PERFORMANCE
+    This page intentionally uses a fast system-font stack, avoiding a render-blocking font request.
+    For exact brand typography, self-host one compressed WOFF2 family and add a font-face rule here
+    with font-display: swap. Keep only the weights actually used (400, 600, 700, 800).
+  -->
 
-<link rel="preload" href="./assets/optimize/hero.webp" as="image" type="image/webp">
+  <style>
+    :root {
+      --teal-950: #02333a;
+      --teal-925: #003b43;
+      --teal-900: #004b51;
+      --teal-800: #00565d;
+      --teal-700: #0b6870;
+      --gold-500: #c59e29;
+      --gold-600: #ae861b;
+      --gold-200: #eadba8;
+      --ivory: #fbfaf5;
+      --mint: #eef4f2;
+      --white: #ffffff;
+      --ink: #123e43;
+      --muted: #5f6f70;
+      --line: #dce5e2;
+      --line-strong: #c8d6d2;
+      --danger: #b42318;
+      --danger-soft: #fff3f1;
+      --success: #067647;
+      --success-soft: #ecfdf3;
+      --shadow-sm: 0 6px 18px rgba(2, 51, 58, 0.08);
+      --shadow-md: 0 18px 46px rgba(2, 51, 58, 0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --container: 1120px;
+      --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
 
-<!-- Critical CSS: Loads immediately -->
-<link rel="stylesheet" href="./src/critical.css">
+    *, *::before, *::after { box-sizing: border-box; }
 
-<!-- Deferred CSS: Loads asynchronously -->
-<link rel="stylesheet" href="./src/style.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="./src/style.css"></noscript>
+    html {
+      scroll-behavior: smooth;
+      text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
 
-<!-- Deferred JS -->
-<script type="module" src="./src/main.js" defer></script>
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--ivory);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid rgba(197, 158, 41, 0.62);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 9999;
+      left: 16px;
+      top: 12px;
+      transform: translateY(-160%);
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--teal-950);
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section--ivory { background: var(--ivory); }
+    .section--mint { background: var(--mint); }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold-600);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--teal-900);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .section-copy {
+      margin: 12px auto 0;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .center { text-align: center; }
+
+    .button {
+      --button-bg: var(--gold-500);
+      --button-color: var(--white);
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 9px;
+      padding: 14px 22px;
+      background: var(--button-bg);
+      color: var(--button-color);
+      box-shadow: 0 7px 18px rgba(197, 158, 41, .24);
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transform: translateY(0) scale(1);
+      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 18%, rgba(255,255,255,.24) 42%, transparent 66%);
+      transform: translateX(-130%);
+      transition: transform .5s ease;
+    }
+
+    .button:hover {
+      background: var(--gold-600);
+      box-shadow: 0 11px 24px rgba(174, 134, 27, .3);
+      transform: translateY(-2px);
+    }
+
+    .button:hover::before { transform: translateX(130%); }
+
+    .button:active,
+    .button.is-clicked {
+      transform: translateY(0) scale(.975);
+      box-shadow: 0 4px 10px rgba(2, 51, 58, .16);
+    }
+
+    .button--teal {
+      --button-bg: var(--teal-900);
+      box-shadow: 0 7px 18px rgba(0, 75, 81, .2);
+    }
+
+    .button--teal:hover {
+      background: var(--teal-950);
+      box-shadow: 0 11px 24px rgba(2, 51, 58, .26);
+    }
+
+    .button svg { width: 18px; height: 18px; flex: 0 0 auto; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--ivory);
+      border-bottom: 1px solid rgba(2, 51, 58, .05);
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .site-header.is-scrolled {
+      border-bottom-color: transparent;
+      box-shadow: 0 8px 24px rgba(2, 51, 58, .11);
+    }
+
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 350px;
+      height: auto;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .header-call { min-height: 44px; padding: 11px 18px; font-size: .94rem; }
+    .button-label-short { display: none; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 20%, rgba(0, 100, 106, .46) 0, rgba(0, 100, 106, 0) 32%),
+        linear-gradient(118deg, #004b51 0%, #003e46 58%, #02333a 100%);
+      color: var(--white);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.5), transparent 92%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 530px;
+      display: grid;
+      align-items: center;
+      padding: 78px 0 82px;
+    }
+
+    .hero-content { max-width: 940px; }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 29px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.46);
+      border-radius: 999px;
+      padding: 6px 12px 5px;
+      color: #e9f2f1;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 940px;
+      color: var(--white);
+      font-size: clamp(2.45rem, 5.2vw, 4.35rem);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: .98;
+      text-wrap: balance;
+    }
+
+    .hero-lead {
+      max-width: 635px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.58;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-call { min-width: 360px; }
+
+    .micro-proof {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px 14px;
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.76);
+      font-size: .86rem;
+    }
+
+    .micro-proof span { display: inline-flex; align-items: center; gap: 6px; }
+    .micro-proof span::before { content: "✓"; color: #e1c967; font-weight: 900; }
+
+    .callback-inline {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,.74);
+      font-size: .86rem;
+    }
+
+    .callback-inline a {
+      color: var(--white);
+      font-weight: 800;
+      text-underline-offset: 3px;
+      transition: color .18s ease;
+    }
+
+    .callback-inline a:hover { color: #f1d86c; }
+
+    /* Trust strip */
+    .trust-strip {
+      background: var(--mint);
+      border-bottom: 1px solid rgba(2, 51, 58, .04);
+    }
+
+    .trust-list {
+      min-height: 108px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px 30px;
+      margin: 0;
+      padding: 20px 0;
+      list-style: none;
+      color: var(--teal-900);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .trust-list li { display: inline-flex; align-items: center; gap: 8px; }
+    .trust-list li::before { content: "✓"; color: var(--gold-500); font-weight: 900; }
+
+    /* Conditions */
+    .condition-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 46px;
+    }
+
+    .condition-card {
+      min-height: 168px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 19px;
+      border: 1px solid rgba(2, 51, 58, .065);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .condition-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(197, 158, 41, .38);
+      box-shadow: 0 16px 28px rgba(2, 51, 58, .11);
+    }
+
+    .condition-card svg {
+      width: 40px;
+      height: 40px;
+      color: var(--teal-800);
+      stroke-width: 1.7;
+    }
+
+    .condition-card strong { color: var(--teal-900); font-size: 1rem; }
+
+    .section-note {
+      margin: 34px 0 0;
+      color: #7a8584;
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 72px;
+      margin-top: 48px;
+    }
+
+    .step { text-align: center; }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      border-radius: 9px;
+      background: var(--gold-500);
+      color: var(--white);
+      box-shadow: 0 9px 20px rgba(197, 158, 41, .18);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0;
+      color: var(--teal-900);
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .step p {
+      margin: 12px auto 0;
+      max-width: 290px;
+      color: #445859;
+      font-size: .94rem;
+    }
+
+    /* Why Renew */
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      align-items: center;
+      gap: clamp(44px, 7vw, 90px);
+    }
+
+    .media-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px dashed rgba(2, 51, 58, .38);
+      border-radius: var(--radius-lg);
+      background: var(--mint);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.7);
+    }
+
+    .media-frame--clinic { aspect-ratio: 1.38 / 1; }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .why-content .section-title { margin-bottom: 28px; }
+
+    .benefit-list {
+      display: grid;
+      gap: 25px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefit {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .benefit svg { width: 28px; height: 28px; color: var(--teal-800); }
+
+    .benefit h3 {
+      margin: 0;
+      color: var(--teal-900);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .benefit p { margin: 5px 0 0; color: #445859; font-size: .92rem; }
+
+    /* Callback */
+    .callback-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(470px, 1.15fr);
+      align-items: start;
+      gap: clamp(45px, 7vw, 90px);
+    }
+
+    .callback-copy { padding-top: 10px; }
+    .callback-copy .section-title { max-width: 430px; }
+
+    .status-card {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 14px;
+      align-items: start;
+      margin-top: 26px;
+      border: 1px solid rgba(2, 51, 58, .075);
+      border-radius: 13px;
+      padding: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .status-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--mint);
+      color: var(--teal-800);
+    }
+
+    .status-icon svg { width: 21px; height: 21px; }
+
+    .status-card p { margin: 0; color: #435758; font-size: .92rem; }
+    .status-card strong { color: var(--teal-900); }
+
+    .callback-body {
+      margin: 24px 0 0;
+      color: #425657;
+      font-size: .98rem;
+    }
+
+    .form-card {
+      border: 1px solid rgba(2, 51, 58, .075);
+      border-radius: 22px;
+      padding: clamp(24px, 4vw, 38px);
+      background: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-alert {
+      display: none;
+      margin: 0 0 20px;
+      border: 1px solid #f4c7c3;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: var(--danger-soft);
+      color: #7a271a;
+      font-size: .9rem;
+    }
+
+    .form-alert.is-visible { display: block; }
+
+    .field { margin-bottom: 18px; }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--teal-950);
+      font-size: .84rem;
+      font-weight: 800;
+    }
+
+    .field .optional { color: #7d8888; font-weight: 500; }
+
+    .control {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+
+    .control::placeholder { color: #8d9898; }
+
+    .control:hover { border-color: #9fb4af; }
+
+    .control:focus {
+      border-color: var(--teal-800);
+      box-shadow: 0 0 0 4px rgba(0, 86, 93, .1);
+    }
+
+    textarea.control { min-height: 88px; resize: vertical; }
+
+    .field-error {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      margin: 7px 0 0;
+      color: var(--danger);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .field-error::before {
+      content: "!";
+      width: 17px;
+      height: 17px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--danger);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 900;
+    }
+
+    .field.is-invalid .control {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: 0 0 0 3px rgba(180, 35, 24, .08);
+    }
+
+    .field.is-invalid .field-error { display: flex; }
+
+    .form-submit { width: 100%; margin-top: 4px; }
+
+    .form-disclaimer {
+      margin: 14px 0 0;
+      color: #7d8888;
+      font-size: .72rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .success-panel {
+      display: none;
+      border: 1px solid #a6f4c5;
+      border-radius: 14px;
+      padding: 24px;
+      background: var(--success-soft);
+      color: #05603a;
+      text-align: center;
+    }
+
+    .success-panel.is-visible { display: block; }
+    .success-panel h3 { margin: 0 0 8px; color: var(--success); }
+    .success-panel p { margin: 0; }
+
+    /* Reviews */
+    .reviews-kicker {
+      margin: 10px 0 0;
+      color: #768281;
+      font-size: .82rem;
+    }
+
+    .reviews-carousel {
+      position: relative;
+      margin-top: 42px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .review-card {
+      min-height: 210px;
+      border: 1px solid rgba(2, 51, 58, .065);
+      border-radius: 16px;
+      padding: 24px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 16px 28px rgba(2,51,58,.11); }
+
+    .review-head { display: flex; align-items: center; gap: 13px; }
+
+    .review-avatar {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--teal-800);
+      font-weight: 800;
+    }
+
+    .review-name { margin: 0; color: var(--teal-950); font-size: .96rem; font-weight: 800; }
+    .review-stars { color: var(--gold-500); font-size: .9rem; letter-spacing: .08em; }
+    .review-text { margin: 20px 0 0; color: #445859; font-size: .92rem; }
+    .review-source { margin: 18px 0 0; color: #8a9493; font-size: .76rem; }
+
+    .review-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .review-arrow {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--teal-900);
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color .18s ease, background-color .18s ease, color .18s ease;
+    }
+
+    .review-arrow:hover { border-color: var(--teal-800); background: var(--teal-900); color: var(--white); }
+    .review-counter { min-width: 78px; color: var(--muted); font-size: .84rem; text-align: center; }
+
+    /* Footer */
+    .site-footer {
+      background: var(--teal-950);
+      color: rgba(255,255,255,.74);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+      gap: clamp(48px, 8vw, 100px);
+      padding: 74px 0 50px;
+    }
+
+    .footer-logo {
+      width: 320px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: .98;
+    }
+
+    .footer-contact-list {
+      display: grid;
+      gap: 15px;
+      margin: 30px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-contact-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 13px;
+      align-items: start;
+      font-size: .92rem;
+    }
+
+    .footer-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--gold-500);
+      color: var(--white);
+    }
+
+    .footer-icon svg { width: 17px; height: 17px; }
+
+    .footer-contact-list a {
+      color: var(--white);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .footer-contact-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .insurance-note { margin: 24px 0 0; color: #e0c861; font-size: .86rem; }
+
+    .map-frame {
+      aspect-ratio: 1.58 / 1;
+      border: 1px dashed rgba(255,255,255,.34);
+      border-radius: 18px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .map-frame iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: inherit; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.22);
+      padding: 28px 0 36px;
+      color: rgba(255,255,255,.62);
+      font-size: .76rem;
+    }
+
+    .footer-bottom p { margin: 0; }
+    .footer-bottom p + p { margin-top: 15px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .condition-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .why-grid, .callback-grid, .footer-top { grid-template-columns: 1fr 1fr; gap: 44px; }
+      .callback-grid { grid-template-columns: minmax(0, .9fr) minmax(410px, 1.1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .section { padding: 72px 0; }
+      .brand-logo { width: 235px; }
+      .hero-inner { min-height: 500px; padding: 68px 0; }
+      .hero-call { min-width: 0; }
+      .condition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps-grid { gap: 34px; }
+      .why-grid, .callback-grid, .footer-top { grid-template-columns: 1fr; }
+      .why-content { order: -1; }
+      .callback-copy { padding-top: 0; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card { min-height: 190px; }
+      .footer-top { gap: 44px; }
+      .map-frame { max-width: 620px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--container)); }
+      .section { padding: 60px 0; }
+      .header-inner { min-height: 66px; gap: 10px; }
+      .brand-logo { width: 184px; }
+      .header-call { min-height: 40px; padding: 10px 12px; font-size: .8rem; }
+      .header-call .button-label-long { display: none; }
+      .header-call .button-label-short { display: inline; }
+      .hero-inner { min-height: auto; padding: 68px 0 72px; }
+      .hero h1 { font-size: clamp(2.25rem, 11vw, 3.25rem); }
+      .hero-lead { margin-top: 19px; }
+      .hero-actions { margin-top: 24px; }
+      .hero-call { width: 100%; }
+      .micro-proof { display: grid; gap: 7px; }
+      .trust-list { justify-content: flex-start; gap: 12px 18px; padding: 20px 0; }
+      .trust-list li { width: calc(50% - 9px); font-size: .82rem; }
+      .section-title { font-size: 2rem; }
+      .condition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 34px; }
+      .condition-card { min-height: 135px; gap: 13px; }
+      .condition-card svg { width: 32px; height: 32px; }
+      .condition-card strong { font-size: .9rem; }
+      .steps-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+      .step p { max-width: 340px; }
+      .why-grid { gap: 34px; }
+      .why-content .section-title { margin-bottom: 24px; }
+      .callback-grid { gap: 34px; }
+      .form-card { border-radius: 17px; padding: 22px 18px; }
+      .reviews-grid { gap: 16px; }
+      .footer-top { padding: 58px 0 42px; }
+      .footer-logo { width: 270px; }
+    }
+
+    @media (max-width: 420px) {
+      .brand-logo { width: 160px; }
+      .header-call { padding-inline: 10px; }
+      .trust-list li { width: 100%; }
+      .condition-grid { grid-template-columns: 1fr 1fr; }
+      .condition-card { min-height: 128px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
-<header class="header" id="header" role="banner">
-  <div class="container">
-    <a class="brand" href="#top" aria-label="RENEW home">
-      <span class="brand-logo-frame" aria-hidden="true">
-        <img class="brand-logo" src="./assets/optimize/logoo.webp" alt="" width="340" height="114" decoding="async">
-      </span>
-    </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="#top" aria-label="RENEW Pain and Wellness Center home">
+        <img
+          class="brand-logo"
+          width="282"
+          height="44"
+          fetchpriority="high"
+          decoding="async"
+          alt="RENEW Pain and Wellness Center of South Florida"
+          src="./assets/optimize/logoo.webp">
+      </a>
 
-    <nav class="nav" aria-label="Primary Navigation">
-      <a href="#conditions">Conditions</a>
-      <a href="#why">About</a>
-      <a href="#location">Insurance</a>
-      <a href="#location">Location</a>
-    </nav>
-
-    <a class="header-call" href="tel:+19542569422" aria-label="Call RENEW now at (954) 256-9422">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-      <span class="num">Call Now: (954) 256-9422</span>
-    </a>
-  </div>
-</header>
-
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<main id="top" role="main">
-<section class="hero" id="hero" aria-labelledby="hero-heading">
-  <div class="hero__photo" aria-hidden="true">
-    <img src="./assets/optimize/hero.webp" alt="" fetchpriority="high" decoding="async" width="1200" height="900">
-  </div>
-  <svg class="hero__left-shape" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
-    <path fill="var(--renew-ivory)" d="M0 0H664C628 150 734 276 718 452C702 632 620 764 730 900H0Z"/>
-    <path fill="none" stroke="var(--renew-gold)" stroke-width="1.3" opacity=".64" d="M664 0C628 150 734 276 718 452C702 632 620 764 730 900"/>
-  </svg>
-
-  <svg class="hero__pattern" viewBox="0 0 420 420" aria-hidden="true">
-    <g fill="var(--renew-sage)" transform="translate(210 210)">
-      <ellipse rx="25" ry="78" transform="rotate(0) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(45) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(90) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(135) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(180) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(225) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(270) translate(0 -118)"/>
-      <ellipse rx="25" ry="78" transform="rotate(315) translate(0 -118)"/>
-      <circle r="24"/>
-    </g>
-  </svg>
-
-  <div class="hero__content">
-    <p class="hero__eyebrow">Physician-led care in South Florida</p>
-    <h1 class="hero__title" id="hero-heading">
-      Find Relief.<br>
-      Restore Clarity.<br>
-      <span>Renew</span> Your Health.
-    </h1>
-    <p class="hero__description">
-      Personalized care for mental wellness, pain management, and longevity - starting with a thoughtful medical evaluation and a plan built around you.
-    </p>
-    <div class="hero__actions" aria-label="Consultation actions">
-      <a class="hero__btn hero__btn--primary" href="tel:+19542569422">Call Now</a>
-      <a class="hero__btn hero__btn--secondary" href="#final">Submit a Form</a>
+      <a class="button header-call" href="tel:+19542569422" aria-label="Call RENEW at 954-256-9422">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="button-label-long">(954) 256-9422</span><span class="button-label-short">Call</span>
+      </a>
     </div>
-    <div class="hero__services" aria-label="Care areas">
-      <div class="hero__service">
-        <span class="hero__service-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 5c-2.4-3-7.1-1.9-7.1 2.1-3.7.2-4.5 5-1.3 6.5-2.4 2.6-.5 6.8 3 6.5.6 3.8 5.4 4.3 6.4 1.1V7.2C17 6.3 16.7 5.6 16 5Z"/>
-            <path d="M16 5c2.4-3 7.1-1.9 7.1 2.1 3.7.2 4.5 5 1.3 6.5 2.4 2.6.5 6.8-3 6.5-.6 3.8-5.4 4.3-6.4 1.1V7.2C15 6.3 15.3 5.6 16 5Z"/>
-            <path d="M11.5 8.5c2.3.4 3.4 1.7 3.5 3.8M10.5 15.7c2.2-.3 3.7.7 4.5 2.9M20.5 8.5c-2.3.4-3.4 1.7-3.5 3.8M21.5 15.7c-2.2-.3-3.7.7-4.5 2.9"/>
-          </svg>
-        </span>
-        <span>Mental Wellness</span>
-      </div>
-      <div class="hero__service">
-        <span class="hero__service-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="16" cy="6.5" r="3.2"/>
-            <path d="M11.2 13.1c1.4-1.4 3.1-2.1 4.8-2.1s3.4.7 4.8 2.1M13.2 13.8l-1.3 6.1-3.5 5.2M18.8 13.8l1.3 6.1 3.5 5.2M14.2 18.1h3.6M16 18.2v7.3"/>
-            <path d="M8.8 9.4 6.1 12l2.7 2.7M23.2 9.4 25.9 12l-2.7 2.7"/>
-          </svg>
-        </span>
-        <span>Pain Management</span>
-      </div>
-      <div class="hero__service">
-        <span class="hero__service-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M25.7 5.6C19.5 5.7 11.9 8.1 8.4 14c-2.7 4.4-.8 9.2-.8 9.2s4.7 1.6 9-1.1c5.7-3.6 8.2-10.5 9.1-16.5Z"/>
-            <path d="M7.6 23.2c4.1-4.2 8.2-7.6 13.1-10.7M13.8 17.7l-.2-5.2M14.1 17.5l5 .8"/>
-          </svg>
-        </span>
-        <span>Longevity</span>
-      </div>
-    </div>
-  </div>
+  </header>
 
-</section>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="location-pill">Hollywood, FL</span>
+          <h1 id="hero-title">Physician-led pain relief,<br> right here in Hollywood</h1>
+          <p class="hero-lead">Your care begins with a thorough medical evaluation, led by our physician and guided by a non-opioid-first approach.</p>
 
-<!-- ============================================================
-     TRUST BAR
-     ============================================================ -->
-<section class="trustbar" aria-label="Why patients trust RENEW">
-  <div class="container">
-    <div class="item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><path d="M8 15v-3a4 4 0 0 1 8 0v3"/><path d="M6 9V5a3 3 0 0 1 3-3"/><circle cx="20" cy="10" r="2"/></svg>
-      Physician-led
-    </div>
-    <div class="item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      Medically supervised
-    </div>
-    <div class="item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-      Most insurances taken or cash
-    </div>
-  </div>
-</section>
+          <div class="hero-actions">
+            <a class="button hero-call" href="tel:+19542569422">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+              Call (954) 256-9422
+            </a>
+          </div>
 
-<!-- ============================================================
-     CONDITIONS — numbered carousel
-     ============================================================ -->
-<section id="conditions" aria-labelledby="conditions-heading">
-  <div class="container">
-    <div class="car-head">
-      <div class="titleblock">
-        <span class="eyebrow" id="conditions-heading">Conditions we treat</span>
-      </div>
-      <span class="counter" id="carCounter">01 / 06</span>
-    </div>
-
-    <div class="car-grid">
-      <div class="car-left">
-        <h3 class="display" id="carTitle">Back Pain</h3>
-        <p id="carDesc">Whether it's a recent strain or pain that's lingered for years, our physician evaluates the root cause before recommending a path forward.</p>
-
-        <div class="car-controls">
-          <button class="arrow-btn" id="carPrev" aria-label="Previous condition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <button class="arrow-btn" id="carNext" aria-label="Next condition">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <div class="car-thumbs" id="carThumbs" role="tablist" aria-label="Choose condition"></div>
-        </div>
-
-        <div class="car-mini-cta">
-          <a class="btn-bracket" href="tel:+19542569422" aria-label="Call to book an evaluation for back pain">Call to book an evaluation</a>
+          <p class="micro-proof"><span>Physician-led &amp; medically supervised</span><span>New patients welcome</span></p>
+          <p class="callback-inline">Closed right now, or not ready to talk yet? <a href="#callback">Request a callback →</a></p>
         </div>
       </div>
+    </section>
 
-      <div class="car-right">
-        <div class="imgwrap" id="carImage">
-          <img src="./assets/optimize/clinic_front.webp" alt="Clinician evaluating a patient's back" loading="lazy" decoding="async" width="800" height="1000">
+    <aside class="trust-strip" aria-label="Practice highlights">
+      <div class="container">
+        <ul class="trust-list">
+          <li>Physician-Led</li>
+          <li>Medically Supervised</li>
+          <li>Evaluation-First</li>
+          <li>Most Insurances Taken or Cash</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="section section--ivory" aria-labelledby="conditions-title">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title" id="conditions-title">Conditions we treat</h2>
+          <p class="section-copy">Evaluation-first care for common sources of ongoing pain.</p>
+        </div>
+
+        <div class="condition-grid">
+          <article class="condition-card">
+            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M25 6c-3 5-1 8-1 12s-4 6-3 11 5 6 3 13"/><path d="M19 8c2 4 1 7 0 10-1 4 1 7 3 9"/><circle cx="25" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
+            <strong>Back pain</strong>
+          </article>
+          <article class="condition-card">
+            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="5"/><path d="M24 9v30M9 24h30" opacity=".45"/></svg>
+            <strong>Neck pain</strong>
+          </article>
+          <article class="condition-card">
+            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 14c-5 0-9 4-9 10s4 10 9 10c3 0 5-2 6-4 1 2 3 4 6 4 5 0 9-4 9-10s-4-10-9-10c-3 0-5 2-6 4-1-2-3-4-6-4Z"/><path d="M21 18c-1 4-1 8 0 12M27 18c1 4 1 8 0 12"/></svg>
+            <strong>Joint pain</strong>
+          </article>
+          <article class="condition-card">
+            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="4"/><path d="M24 4v5M24 39v5M4 24h5M39 24h5"/></svg>
+            <strong>Sciatica</strong>
+          </article>
+          <article class="condition-card">
+            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="5"/><path d="M14 13l20 22M34 13 14 35" opacity=".35"/></svg>
+            <strong>Chronic pain</strong>
+          </article>
+        </div>
+        <p class="section-note">Non-opioid options available.</p>
+      </div>
+    </section>
+
+    <section class="section section--mint" aria-labelledby="expect-title">
+      <div class="container">
+        <h2 class="section-title center" id="expect-title">What to expect</h2>
+        <div class="steps-grid">
+          <article class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Call</h3>
+            <p>Reach our team and tell us briefly what’s been going on.</p>
+          </article>
+          <article class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Evaluation</h3>
+            <p>Come in for a thorough medical evaluation with our physician.</p>
+          </article>
+          <article class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Personalized plan</h3>
+            <p>Receive a treatment plan built around your needs, under physician supervision.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<hr class="divider">
+    <section class="section section--ivory" aria-labelledby="why-title">
+      <div class="container why-grid">
+        <figure class="media-frame media-frame--clinic">
+          <img
+            width="720"
+            height="522"
+            loading="lazy"
+            decoding="async"
+            alt="RENEW clinic interior in Hollywood, Florida"
+            src="./assets/optimize/clinic_interior.webp">
+        </figure>
 
-<!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
-<section id="how" aria-labelledby="how-heading">
-  <div class="container">
-    <span class="eyebrow" id="how-heading">How it works</span>
-    <div class="steps">
-      <div class="step reveal">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <h4>Initial Evaluation</h4>
-        <p>A thorough medical evaluation with no rushed decisions.</p>
-      </div>
-      <div class="step reveal">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h3M10.5 13.5v3"/></svg>
-        <h4>Personalized Plan</h4>
-        <p>A treatment plan aligned with your needs and medical evaluation.</p>
-      </div>
-      <div class="step reveal">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        <h4>Ongoing Monitoring</h4>
-        <p>Medically supervised care with continued monitoring.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="why-content">
+          <h2 class="section-title" id="why-title">Why Renew</h2>
+          <ul class="benefit-list">
+            <li class="benefit">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <div><h3>Local to Hollywood</h3><p>Care close to home, with a clinic team based right here in South Florida.</p></div>
+            </li>
+            <li class="benefit">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.3-4.5 2.3.9-5-3.6-3.5 5-.7L12 3Z"/><path d="M4 20h16"/></svg>
+              <div><h3>Physician-led</h3><p>Every plan is directed and medically supervised by our physician.</p></div>
+            </li>
+            <li class="benefit">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-3 4-4 7-4 2 0 3 1 4 2l2-2 5 5-4 4-3-1-3 3-6-1-2-6Z"/><path d="M8 13l3 1 3-2"/></svg>
+              <div><h3>Patient-first</h3><p>Evaluation-first, non-opioid options, and no rushed decisions.</p></div>
+            </li>
+          </ul>
 
-<!-- ============================================================
-     WHY RENEW
-     ============================================================ -->
-<section id="why" aria-labelledby="why-heading">
-  <div class="container why-grid">
-    <div class="why-media reveal">
-      <div class="imgwrap clinic-photo">
-        <img src="./assets/optimize/Modern_Treatment_Room.webp" alt="Modern treatment room at RENEW Pain & Wellness" loading="lazy" decoding="async" width="828" height="1238">
-      </div>
-      <div class="imgwrap staff-photo">
-        <img src="./assets/optimize/doctor.webp" alt="Doctor at RENEW Pain & Wellness" loading="lazy" decoding="async" width="1200" height="1200">
-      </div>
-    </div>
-    <div class="why-copy">
-      <span class="eyebrow" id="why-heading">Why patients choose RENEW</span>
-      <h2 class="display">Physician-led care.</h2>
-      <p>Physician-led care, founded by Dr. Ben Shatil.</p>
-      <ul class="why-list" aria-label="Reasons to choose RENEW">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Physician-led and medically supervised</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Non-opioid-first approach</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Patient-first, unhurried care</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Boutique, welcoming setting</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     DARK CTA BAND
-     ============================================================ -->
-<section class="band" aria-label="Ready when you are">
-  <div class="container">
-    <div>
-      <span class="eyebrow">Ready when you are</span>
-      <h2>Start with a physician-led evaluation. Most insurances taken or cash.</h2>
-    </div>
-    <a class="btn-call" href="tel:+19542569422" aria-label="Call Now at (954) 256-9422">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Call Now: (954) 256-9422
-    </a>
-  </div>
-</section>
-
-<!-- ============================================================
-     LOCATION
-     ============================================================ -->
-<section id="location" aria-labelledby="location-heading">
-  <div class="container loc-grid">
-    <div class="loc-info">
-      <span class="eyebrow" id="location-heading">Serving Hollywood and surrounding South Florida, including Broward County</span>
-      <h2 class="display">Find us in Hollywood.</h2>
-      <div class="loc-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="k">Address</span>
-        <span class="v">RENEW Pain &amp; Wellness Center<br>4614 Hollywood Blvd, Hollywood, FL 33021</span>
-      </div>
-      <div class="loc-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <span class="k">Hours</span>
-        <span class="v">Monday–Friday, 8:00 AM–4:00 PM</span>
-      </div>
-      <div class="loc-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span class="k">Phone</span>
-        <a class="v" href="tel:+19542569422">(954) 256-9422</a>
-      </div>
-      <div class="loc-cta">
-        <a class="btn-call" href="tel:+19542569422" aria-label="Call Now at (954) 256-9422">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now
-        </a>
-        <a class="btn-bracket" href="https://www.google.com/maps/search/?api=1&amp;query=RENEW%20Pain%20%26%20Wellness%20Center%2C%204614%20Hollywood%20Blvd%2C%20Hollywood%2C%20FL%2033021" aria-label="Get directions to RENEW Pain &amp; Wellness Center">Get directions</a>
-      </div>
-    </div>
-    <div class="loc-map">
-      <iframe
-        src="https://www.google.com/maps?q=RENEW%20Pain%20%26%20Wellness%20Center%2C%204614%20Hollywood%20Blvd%2C%20Hollywood%2C%20FL%2033021&amp;output=embed"
-        title="RENEW Pain &amp; Wellness Center location"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BRAND STATEMENT (oversized wordmark)
-     ============================================================ -->
-<section class="statement" aria-label="Brand Statement">
-  <div class="container">
-    <div class="corners">
-      <span>Physician-led</span>
-      <span>Medically supervised</span>
-    </div>
-    <div class="big display">
-      <div class="imgwrap">
-        <img src="./assets/optimize/portrait-of-medical-team-standing-in-hospital-corr-2TAKGEV.webp" alt="" loading="lazy" decoding="async" width="828" height="512">
-      </div>
-      RENEW
-    </div>
-    <p class="sub">Evaluation first. Always.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     TESTIMONIAL
-     ============================================================ -->
-<section id="reviews" aria-labelledby="reviews-heading">
-  <div class="container">
-    <span class="eyebrow" id="reviews-heading">Verified Google Reviews</span>
-    <div class="testi-grid is-single" id="testimonialCarousel" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
-      <div class="testi-body">
-        <div class="testi-rating" id="testimonialRating" aria-label="5 out of 5 stars">
-          <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        </div>
-        <blockquote class="testi-quote" id="testimonialText" aria-live="polite">Amazing experience and the staff was very welcoming, professional, and genuinely caring. Highly recommended!</blockquote>
-        <button class="testi-more" id="testimonialMore" type="button" aria-controls="testimonialText" aria-expanded="false" hidden>Read more</button>
-        <div class="testi-meta">
-          <cite class="testi-name display" id="testimonialName">Christian Roldan</cite>
-          <span class="counter" id="testimonialCounter" aria-live="polite">1 of 1</span>
-        </div>
-        <div class="testi-controls" id="testimonialControls">
-          <button class="arrow-btn" id="testimonialPrev" type="button" aria-label="Previous testimonial">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <button class="arrow-btn" id="testimonialNext" type="button" aria-label="Next testimonial">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          <a class="button" href="tel:+19542569422">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+            Call (954) 256-9422
+          </a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<hr class="divider">
+    <section class="section section--mint" id="callback" aria-labelledby="callback-title">
+      <div class="container callback-grid">
+        <div class="callback-copy">
+          <p class="eyebrow">Another way to reach us</p>
+          <h2 class="section-title" id="callback-title">Prefer we call you? Request a callback.</h2>
 
-<!-- ============================================================
-     FAQ
-     ============================================================ -->
-<section id="faq" aria-labelledby="faq-heading">
-  <div class="container">
-    <div class="faq-head">
-      <span class="eyebrow" id="faq-heading">Common questions</span>
-      <h2 class="display">Good to know before you call.</h2>
-    </div>
+          <div class="status-card">
+            <span class="status-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <p><strong>Closed right now?</strong> Leave your number and we’ll call you back during clinic hours.</p>
+          </div>
 
-    <div class="faq-tabs" role="tablist" aria-label="FAQ categories">
-      <button class="faq-tab active" id="faq-tab-general" type="button" role="tab" aria-selected="true" aria-controls="faq-panel-general" data-faq-tab="general">General</button>
-      <button class="faq-tab" id="faq-tab-care" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-care" data-faq-tab="care">First Visit</button>
-      <button class="faq-tab" id="faq-tab-mental" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-mental" data-faq-tab="mental">Mental Wellness</button>
-      <button class="faq-tab" id="faq-tab-pain" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-pain" data-faq-tab="pain">Pain Care</button>
-      <button class="faq-tab" id="faq-tab-longevity" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-longevity" data-faq-tab="longevity">Longevity</button>
-    </div>
-
-    <div class="faq-panel active" id="faq-panel-general" role="tabpanel" aria-labelledby="faq-tab-general" data-faq-panel="general">
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-1"><span>What is RENEW Pain & Wellness Center?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-1"><p>RENEW is a physician-led South Florida practice offering medically supervised care across mental wellness, pain management, and longevity optimization. Every patient starts with a thorough medical evaluation before treatment is recommended.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-2"><span>Who leads care at RENEW?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-2"><p>Care is led by founder Dr. Ben Shatil. Treatment recommendations are made under physician supervision and are based on a clinical evaluation rather than automatically offering a procedure.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-3"><span>Where is RENEW located, and what are its hours?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-3"><p>RENEW is located in South Florida. Please contact the clinic to confirm the precise location, current availability, and hours before visiting.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-4"><span>Is RENEW a medical clinic or a wellness center?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-4"><p>RENEW is a physician-led medical practice, not a spa or general wellness program. Care is clinically supervised, evaluation-based, and guided by evidence-informed medical practice.</p></div>
-      </div>
-    </div>
-
-    <div class="faq-panel" id="faq-panel-care" role="tabpanel" aria-labelledby="faq-tab-care" data-faq-panel="care" hidden>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-5"><span>How do I know whether RENEW is right for me?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-5"><p>The clinic recommends beginning with a consultation. The team reviews your health history, current symptoms or concerns, and treatment goals to determine whether RENEW's options may be appropriate.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-6"><span>What happens during the first visit?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-6"><p>The first visit begins with a comprehensive medical evaluation, including your medical history, current symptoms, and treatments you have already tried. Treatment is not recommended until that evaluation is complete.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-7"><span>Do I need a referral to schedule a consultation?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-7"><p>No. Patients may request a consultation directly through the website or by contacting the clinic by phone.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-8"><span>Does RENEW accept insurance?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-8"><p>The website does not list specific accepted insurance plans. Contact the clinic directly for the latest information about insurance and payment options.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-9"><span>Does every patient receive the same treatments?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-9"><p>No. Recommendations are individualized based on the medical evaluation, health history, current symptoms, and patient goals.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-10"><span>Can a patient receive care in more than one treatment area?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-10"><p>Yes. Some patients may receive care across more than one category when the evaluation supports that approach, such as mental-wellness care and pain management.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-11"><span>How does ongoing monitoring work?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-11"><p>After treatment begins, the clinical team monitors the patient's response and may adjust the approach based on progress. Follow-up timing is individualized and discussed during evaluation.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-12"><span>Is care at RENEW evidence-based?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-12"><p>RENEW states that recommendations are guided by clinical evaluation, current best practices, and evidence-informed clinical standards.</p></div>
-      </div>
-    </div>
-
-    <div class="faq-panel" id="faq-panel-mental" role="tabpanel" aria-labelledby="faq-tab-mental" data-faq-panel="mental" hidden>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-13"><span>How do I know whether I am a candidate for ketamine therapy?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-13"><p>Candidacy is determined during a medical evaluation. The clinician reviews your health history, current symptoms, and treatments you have previously tried before making a recommendation.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-14"><span>What does "medically supervised" mean in practice?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-14"><p>Ketamine sessions take place in a clinical setting with a physician or qualified clinician present. Patients are monitored throughout the session and receive instructions before, during, and after the visit.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-15"><span>How many ketamine sessions are normally involved?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-15"><p>RENEW does not give a fixed number. The number and frequency of sessions vary by patient and are guided by evaluation, response, and progress.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-16"><span>Can ketamine therapy be combined with other treatments?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-16"><p>Sometimes. A patient receiving ketamine may also be evaluated for other options, such as peptide support, depending on clinical needs and response.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-17"><span>What if I have already tried other treatments without enough improvement?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-17"><p>The evaluation takes your full treatment history into account before determining whether ketamine-assisted care may be appropriate.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-18"><span>Is ketamine therapy appropriate for PTSD?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-18"><p>Ketamine-assisted care may be considered for people with PTSD symptoms when conventional treatments have not provided adequate improvement. Eligibility is determined through structured clinical screening.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-19"><span>What is ExoMind, and how is it used?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-19"><p>RENEW describes ExoMind as a non-invasive, device-based option that may be considered within a clinician-guided mental-wellness plan. Details and eligibility are confirmed during evaluation.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-20"><span>How does Botox help with migraines?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-20"><p>Botox for migraines is described as an FDA-approved treatment that targets particular nerve pathways to help reduce the frequency and severity of chronic migraines. Treatment is generally administered every 12 weeks after evaluation.</p></div>
-      </div>
-    </div>
-
-    <div class="faq-panel" id="faq-panel-pain" role="tabpanel" aria-labelledby="faq-tab-pain" data-faq-panel="pain" hidden>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-21"><span>What does "non-opioid-first pain care" mean?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-21"><p>The clinic first evaluates available alternatives before considering opioid medication. Options may include interventional procedures, regenerative therapies, anti-inflammatory medication, muscle relaxants, and other conservative options.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-22"><span>Does RENEW treat patients who are already taking opioids?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-22"><p>Yes. RENEW says it works with patients who have complex medication histories, including those already taking opioids, with a focus on safety, stability, and a thoughtful path forward.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-23"><span>What is the difference between an epidural and a nerve block?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-23"><p>Both target pain at its source. Epidurals are generally used for spine-related pain, while nerve blocks are intended to interrupt pain signals from a particular nerve or pathway.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-24"><span>What are trigger-point injections used for?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-24"><p>Trigger-point injections may be used for specific areas of muscular tightness or localized pain, especially when other treatments have not adequately improved mobility or discomfort.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-25"><span>What is regenerative medicine, and how does it differ from standard pain care?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-25"><p>RENEW describes regenerative treatments, including stem-cell and exosome approaches, as cellular-level therapies intended to support tissue healing and reduce inflammation when clinically appropriate.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-26"><span>How long does it take to see results from pain procedures?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-26"><p>Response time varies by procedure, patient, condition, and treatment response. The clinician explains expectations during evaluation and monitors progress at follow-up visits.</p></div>
-      </div>
-    </div>
-
-    <div class="faq-panel" id="faq-panel-longevity" role="tabpanel" aria-labelledby="faq-tab-longevity" data-faq-panel="longevity" hidden>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-27"><span>What is the difference between longevity care and general wellness?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-27"><p>RENEW says longevity care is physician-led and based on advanced diagnostics, clinical evaluation, medical history, health data, and diagnostic results.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-28"><span>What does baseline longevity testing include?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-28"><p>The website does not list a standard testing panel. Tests are selected during consultation based on health history and goals.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-29"><span>What is therapeutic plasma exchange?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-29"><p>Therapeutic plasma exchange is described as an advanced procedure in which a portion of the plasma in a person's blood is replaced. It is offered only when considered clinically appropriate.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-30"><span>How is hormone therapy different from over-the-counter supplements?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-30"><p>Hormone therapy is physician-supervised, based on clinical testing, tailored to the patient's hormonal profile, and monitored over time rather than being a generalized supplement approach.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-31"><span>Are peptide therapies safe?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-31"><p>The website does not make an unconditional safety guarantee. Peptide recommendations are based on medical evaluation and evidence-informed protocols, with safety, dosage, and monitoring reviewed before treatment starts.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-32"><span>What is the purpose of parasite and heavy-metal detoxification?</span><span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a" id="faq-ans-32"><p>This treatment is intended to address specific toxin burdens identified through testing and to support optimal function. It is offered only when clinically indicated and conducted with physician oversight.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FINAL CTA + FORM
-     ============================================================ -->
-<section class="final" id="final" aria-labelledby="final-heading">
-  <div class="container final-grid">
-    <div class="final-left">
-      <span class="eyebrow" id="final-heading">Talk to our team</span>
-      <h2 class="display" style="margin-top:14px;">Talk to our team today.</h2>
-      <p class="lead">Call now to speak with our team, or leave your info and we'll call you back — including after hours.</p>
-      <div class="callblock">
-        <a class="btn-call" href="tel:+19542569422" aria-label="Call Now at (954) 256-9422">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now: (954) 256-9422
-        </a>
-        <span class="or">or</span>
-      </div>
-      <p class="final-trust">Physician-led · Medically supervised · Most insurances taken or cash</p>
-    </div>
-
-    <div class="form">
-      <span class="eyebrow">Request a callback</span>
-      <form id="callbackForm" novalidate aria-label="Callback Request Form">
-        <div class="field">
-          <label for="cbName">Name</label>
-          <input type="text" id="cbName" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true" aria-describedby="cbNameError">
-          <span class="error-message" id="cbNameError">Please enter your name.</span>
+          <p class="callback-body">It’s also here for when you’re not ready to talk yet—share a few details and our team will reach out. Calling is still the fastest way to be seen.</p>
         </div>
-        <div class="field">
-          <label for="cbPhone">Phone</label>
-          <input type="tel" id="cbPhone" name="phone" placeholder="(000) 000-0000" required autocomplete="tel" inputmode="tel" aria-required="true" aria-describedby="cbPhoneError">
-          <span class="error-message" id="cbPhoneError">Please enter a valid phone number with at least 10 digits.</span>
-        </div>
-        <div class="field">
-          <label for="cbReason">What brings you in? <span class="optional">(optional)</span></label>
-          <textarea id="cbReason" name="reason" placeholder="Briefly, what kind of pain are you dealing with?"></textarea>
-        </div>
-        <button class="btn-call" type="submit" data-idle-label="Request a callback" data-loading-label="Sending request…">Request a callback</button>
-        <div class="form-status" id="formStatus" role="alert" aria-live="assertive" hidden></div>
-        <p class="fineprint">We'll only use your details to call you back about your care.</p>
-      </form>
-    </div>
-  </div>
-</section>
-</main>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer class="footer" id="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-mark display">RENEW Pain &amp; Wellness Center</div>
-      <a class="btn-outline-light" href="tel:+19542569422">Call Now: (954) 256-9422</a>
-    </div>
+        <div class="form-card">
+          <div class="form-alert" id="form-alert" role="alert" tabindex="-1">Please correct the highlighted fields before submitting.</div>
 
-    <div class="footer-cols">
+          <!-- Connect action to your CRM/Form endpoint before launch. -->
+          <form id="callback-form" novalidate>
+            <div class="field" data-field="name">
+              <label for="full-name">Full name</label>
+              <input class="control" id="full-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
+              <p class="field-error" id="name-error">Please enter your full name.</p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="phone">Phone number</label>
+              <input class="control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(954) 555-0000" required aria-describedby="phone-error">
+              <p class="field-error" id="phone-error">Enter a valid 10-digit phone number.</p>
+            </div>
+
+            <div class="field" data-field="time">
+              <label for="best-time">Best time to call</label>
+              <select class="control" id="best-time" name="best_time" required aria-describedby="time-error">
+                <option value="No preference">No preference</option>
+                <option>Morning (8 AM–12 PM)</option>
+                <option>Afternoon (12 PM–5 PM)</option>
+              </select>
+              <p class="field-error" id="time-error">Please choose the best time to call.</p>
+            </div>
+
+            <div class="field" data-field="reason">
+              <label for="reason">Reason for call <span class="optional">(optional)</span></label>
+              <textarea class="control" id="reason" name="reason" placeholder="e.g. ongoing lower-back pain" maxlength="500"></textarea>
+            </div>
+
+            <button class="button button--teal form-submit" type="submit">Request a callback</button>
+            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. No detailed health information is needed here. Form is visual only—connect to your scheduling system, CRM, or email endpoint before launch.</p>
+          </form>
+
+          <div class="success-panel" id="success-panel" role="status" aria-live="polite">
+            <h3>Request received</h3>
+            <p>Thank you. The clinic team will call you during business hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ivory" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="center">
+          <h2 class="section-title" id="reviews-title">What patients say</h2>
+          <p class="reviews-kicker">Verified Google Reviews · 5.0 ★</p>
+        </div>
+
+        <div class="reviews-carousel" id="reviews-carousel" role="region" aria-roledescription="carousel" aria-label="Verified Google reviews">
+          <div class="reviews-grid" id="reviews-grid" aria-live="polite"></div>
+          <div class="review-controls">
+            <button class="review-arrow" id="review-prev" type="button" aria-label="View previous reviews">←</button>
+            <span class="review-counter" id="review-counter">1–3 of 19</span>
+            <button class="review-arrow" id="review-next" type="button" aria-label="View next reviews">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
       <div>
-        <h5>Care</h5>
-        <a href="#conditions">Conditions we treat</a>
-        <a href="#how">How it works</a>
-        <a href="#why">About</a>
+        <img
+          class="footer-logo"
+          width="320"
+          height="50"
+          loading="lazy"
+          decoding="async"
+          alt="RENEW Pain and Wellness Center of South Florida"
+          src="./assets/optimize/logoo.webp">
+
+        <ul class="footer-contact-list">
+          <li>
+            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span>4614 Hollywood Blvd<br>Hollywood, FL 33021</span>
+          </li>
+          <li>
+            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg></span>
+            <a href="tel:+19542569422">(954) 256-9422</a>
+          </li>
+          <li>
+            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span>Monday–Friday&nbsp; 8:00 AM–4:00 PM</span>
+          </li>
+        </ul>
+        <p class="insurance-note">Most insurances taken or cash.</p>
       </div>
-      <div>
-        <h5>Visit</h5>
-        <a href="#location">Location</a>
-        <a href="#location">Insurance</a>
-        <a href="#final">Request a callback</a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <p>4614 Hollywood Blvd<br>Hollywood, FL 33021</p>
-        <a href="tel:+19542569422">(954) 256-9422</a>
-        <p>Monday–Friday, 8:00 AM–4:00 PM</p>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms of service</a>
-      </div>
+
+      <figure class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=RENEW%20Pain%20%26%20Wellness%20Center%2C%204614%20Hollywood%20Blvd%2C%20Hollywood%2C%20FL%2033021&amp;output=embed"
+          title="RENEW Pain &amp; Wellness Center location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </figure>
     </div>
 
-    <p class="footer-disclaimer">Individual evaluations and care plans vary. Content on this page is for general information and is not a substitute for professional medical advice.</p>
-
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> RENEW Pain &amp; Wellness Center</span>
-      <span>Hollywood, FL</span>
+    <div class="container footer-bottom">
+      <p>The information provided on this page is for general informational purposes only and does not constitute medical advice. All care at RENEW Pain &amp; Wellness Center is delivered under physician supervision following a thorough medical evaluation.</p>
+      <p>© 2026 RENEW Pain &amp; Wellness Center of South Florida. All rights reserved.</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ============================================================
-     STICKY MOBILE CALL BAR
-     ============================================================ -->
-<a class="mobile-callbar" href="tel:+19542569422" aria-label="Call RENEW now at (954) 256-9422">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  Call Now: (954) 256-9422
-</a>
+  <script>
+    (() => {
+      "use strict";
 
+      const siteHeader = document.querySelector(".site-header");
+      const updateHeader = () => siteHeader?.classList.toggle("is-scrolled", window.scrollY > 8);
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+
+      // Small tactile click animation for all CTA buttons.
+      document.querySelectorAll(".button").forEach((button) => {
+        button.addEventListener("pointerdown", () => button.classList.add("is-clicked"));
+        ["pointerup", "pointercancel", "pointerleave"].forEach((eventName) => {
+          button.addEventListener(eventName, () => button.classList.remove("is-clicked"));
+        });
+      });
+
+      const reviews = [
+        { name: "Christian Roldan", text: "Amazing experience and the staff was very welcoming, professional, and genuinely caring. Highly recommended!" },
+        { name: "RN, BSN", text: "I've seen a lot of specialists over the years, and Renew Pain & Wellness has easily been one of the best experiences I've had. Appointments are organized, the office is professional, and I never feel rushed." },
+        { name: "Yoella", text: "Finding a doctor who truly listens is becoming harder and harder these days. The physician spent more time with me during one visit than most doctors have in years." },
+        { name: "Sophia Gonzalez", text: "I've had an excellent experience at Renew Pain & Wellness. Dr. Sina is one of the few physicians I've met who truly takes the time to listen and understand what you're going through before recommending treatment. I never felt rushed." },
+        { name: "Eli's Mom", text: "I recently completed ketamine IV therapy at Renew, and I couldn't have asked for a better experience. I was nervous going into my first treatment, but the medical staff made me feel comfortable from the moment I arrived." },
+        { name: "Davie Shatil", text: "I almost never write reviews, but this place deserves one. After trying multiple doctors over the years, Renew has been the first office that truly listened." },
+        { name: "S D", text: "I honestly can't say enough good things about Renew Pain & Wellness Center of South Florida. After struggling to find a practice that actually listens and treats you like a person instead of just another appointment, I finally found Renew." },
+        { name: "Steven Foley", text: "Longevity Care Worth Doing for Your Family. Renew Pain & Wellness Center delivered outstanding longevity and wellness care." },
+        { name: "Arielle Zeligman", text: "I had a great experience at Renew Pain & Wellness. Everyone was friendly, professional, and made me feel comfortable from the moment I walked in. They really took the time to listen to my concerns and explain my treatment options." },
+        { name: "Sophia Gonzalez", text: "Amazing staff, excellent service, and a beautiful facility. Highly recommend!" },
+        { name: "Simon Johnson", text: "Excellent experience from start to finish! The staff was incredibly friendly, the office was beautiful and professional, and I truly felt heard throughout the entire process." },
+        { name: "Aroon Duncanson", text: "Love all the providers here! Such a great place with amazing options, highly recommend & everyone makes you feel so comfortable and thoroughly explains everything." },
+        { name: "Michal Goldshmid", text: "These providers have magic hands and big hearts! Highly recommend!" },
+        { name: "Holly Springer", text: "I recently visited Renew Pain and Wellness Center of South Florida and had a great experience. The staff was welcoming, the office was clean and professional, and the provider took the time to listen to my concerns and explain my treatment." },
+        { name: "David Winter", text: "I highly recommend Renew Pain and Wellness Center of South Florida, especially Dr. Shatil. From my first visit, the team took the time to understand not only the pain I was experiencing from a sports injury, but also my personal goals." },
+        { name: "Daliana Martinez", text: "I had a great experience at Renew. The staff was incredibly friendly and welcoming from the moment I arrived. They were very informative and took the time to answer all of my questions, which made me feel comfortable and well cared for." },
+        { name: "Rivka Stell", text: "5-star review." },
+        { name: "Lee Shatil", text: "Excellent experience from start to finish. The staff was friendly, the office was beautiful and professional, and I felt truly listened to. Highly recommend Renew Pain and Wellness Center for anyone dealing with chronic pain or looking for personalized care." },
+        { name: "Pedro Lanz", text: "5-star review." }
+      ];
+
+      const reviewGrid = document.getElementById("reviews-grid");
+      const reviewCounter = document.getElementById("review-counter");
+      let reviewStart = 0;
+
+      const visibleReviewCount = () => window.matchMedia("(max-width: 760px)").matches ? 1 : 3;
+      const initials = (name) => name.split(/\s+/).map((part) => part[0]).join("").slice(0, 2).toUpperCase();
+
+      const renderReviews = () => {
+        if (!reviewGrid) return;
+        const count = visibleReviewCount();
+        reviewStart = Math.min(reviewStart, Math.max(0, reviews.length - count));
+        reviewGrid.replaceChildren(...reviews.slice(reviewStart, reviewStart + count).map((review) => {
+          const card = document.createElement("article");
+          card.className = "review-card";
+          card.setAttribute("aria-label", `Five-star Google review from ${review.name}`);
+
+          const head = document.createElement("div");
+          head.className = "review-head";
+          const avatar = document.createElement("span");
+          avatar.className = "review-avatar";
+          avatar.setAttribute("aria-hidden", "true");
+          avatar.textContent = initials(review.name);
+          const identity = document.createElement("div");
+          const name = document.createElement("p");
+          name.className = "review-name";
+          name.textContent = review.name;
+          const stars = document.createElement("div");
+          stars.className = "review-stars";
+          stars.setAttribute("aria-label", "5 out of 5 stars");
+          stars.textContent = "★★★★★";
+          identity.append(name, stars);
+          head.append(avatar, identity);
+
+          const text = document.createElement("p");
+          text.className = "review-text";
+          text.textContent = review.text;
+          const source = document.createElement("p");
+          source.className = "review-source";
+          source.textContent = "Verified Google Review";
+          card.append(head, text, source);
+          return card;
+        }));
+        const end = Math.min(reviewStart + count, reviews.length);
+        reviewCounter.textContent = `${reviewStart + 1}–${end} of ${reviews.length}`;
+      };
+
+      document.getElementById("review-prev")?.addEventListener("click", () => {
+        const count = visibleReviewCount();
+        reviewStart = reviewStart === 0 ? Math.max(0, reviews.length - count) : Math.max(0, reviewStart - count);
+        renderReviews();
+      });
+
+      document.getElementById("review-next")?.addEventListener("click", () => {
+        const count = visibleReviewCount();
+        reviewStart = reviewStart + count >= reviews.length ? 0 : reviewStart + count;
+        renderReviews();
+      });
+
+      window.addEventListener("resize", renderReviews, { passive: true });
+      renderReviews();
+
+      const form = document.getElementById("callback-form");
+      const alertBox = document.getElementById("form-alert");
+      const successPanel = document.getElementById("success-panel");
+      const nameInput = document.getElementById("full-name");
+      const phoneInput = document.getElementById("phone");
+      const timeSelect = document.getElementById("best-time");
+
+      if (!form) return;
+
+      const digitsOnly = (value) => value.replace(/\D/g, "");
+
+      const formatPhone = (value) => {
+        const digits = digitsOnly(value).slice(0, 10);
+        if (digits.length <= 3) return digits;
+        if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+        return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+      };
+
+      const rules = {
+        name: () => nameInput.value.trim().length >= 2,
+        phone: () => digitsOnly(phoneInput.value).length === 10,
+        time: () => timeSelect.value.trim().length > 0
+      };
+
+      const setValidityUI = (key, isValid) => {
+        const field = form.querySelector(`[data-field="${key}"]`);
+        const control = field?.querySelector(".control");
+        if (!field || !control) return;
+        field.classList.toggle("is-invalid", !isValid);
+        control.setAttribute("aria-invalid", String(!isValid));
+      };
+
+      const validateField = (key) => {
+        const isValid = rules[key]();
+        setValidityUI(key, isValid);
+        return isValid;
+      };
+
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = formatPhone(phoneInput.value);
+        if (phoneInput.getAttribute("aria-invalid") === "true") validateField("phone");
+      });
+
+      [
+        [nameInput, "name"],
+        [phoneInput, "phone"],
+        [timeSelect, "time"]
+      ].forEach(([control, key]) => {
+        control.addEventListener("blur", () => validateField(key));
+        control.addEventListener("input", () => {
+          if (control.getAttribute("aria-invalid") === "true") validateField(key);
+        });
+        control.addEventListener("change", () => {
+          if (control.getAttribute("aria-invalid") === "true") validateField(key);
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const results = Object.keys(rules).map(validateField);
+        const isValid = results.every(Boolean);
+
+        if (!isValid) {
+          alertBox.classList.add("is-visible");
+          alertBox.focus();
+          const firstInvalid = form.querySelector('[aria-invalid="true"]');
+          firstInvalid?.focus({ preventScroll: false });
+          return;
+        }
+
+        alertBox.classList.remove("is-visible");
+        form.hidden = true;
+        successPanel.classList.add("is-visible");
+        successPanel.focus?.();
+
+        // Replace the visual success behavior above with your actual async submission.
+        // Keep server-side validation enabled even when client-side validation is present.
+      });
+    })();
+  </script>
 </body>
 </html>
