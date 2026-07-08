@@ -23,7 +23,7 @@ fs.readdir(inputDir, (err, files) => {
     }
 
     const inputPath = path.join(inputDir, file);
-    const outputFilename = path.parse(file).name + '.webp';
+    const outputFilename = path.parse(file).name.replace(/\s+/g, '_') + '.webp';
     const outputPath = path.join(outputDir, outputFilename);
 
     // Goal: Convert to WebP and ensure size is under 50KB.

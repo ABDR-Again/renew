@@ -7,13 +7,15 @@ if (header) {
 }
 
 // 2. Conditions carousel
+const assetUrl = (path) => new URL(path, import.meta.url).href;
+
 const conditions = [
-  { title: 'Back Pain', path: './assets/optimize/clinic_front.webp', desc: "Whether it's a recent strain or pain that's lingered for years, our physician evaluates the root cause before recommending a path forward." },
-  { title: 'Neck Pain', path: './assets/optimize/customer_selfie.webp', desc: "From stiffness to radiating discomfort, we assess your neck pain with a full, physician-led clinical evaluation." },
-  { title: 'Joint Pain', path: './assets/optimize/physician_portrait.webp', desc: "Knees, shoulders, hips — we evaluate joint pain to build a plan that fits your body and your goals." },
-  { title: 'Sciatica', path: './assets/optimize/Sciatica.webp', desc: "Nerve-related pain deserves a careful evaluation. We start by understanding your symptoms and medical history." },
-  { title: 'Chronic Pain', path: './assets/optimize/chronic_pain.webp', desc: "Ongoing pain that's affected your daily life? Let's start with a thorough evaluation and a plan built around you." },
-  { title: 'Sports Injuries', path: './assets/optimize/sciatica_pain.webp', desc: "A thorough medical evaluation helps shape a plan aligned with your injury, needs, and activity goals." },
+  { title: 'Back Pain', path: assetUrl('../assets/optimize/clinic_front.webp'), desc: "Whether it's a recent strain or pain that's lingered for years, our physician evaluates the root cause before recommending a path forward." },
+  { title: 'Neck Pain', path: assetUrl('../assets/optimize/customer_selfie.webp'), desc: "From stiffness to radiating discomfort, we assess your neck pain with a full, physician-led clinical evaluation." },
+  { title: 'Joint Pain', path: assetUrl('../assets/optimize/physician_portrait.webp'), desc: "Knees, shoulders, hips — we evaluate joint pain to build a plan that fits your body and your goals." },
+  { title: 'Sciatica', path: assetUrl('../assets/optimize/Sciatica.webp'), desc: "Nerve-related pain deserves a careful evaluation. We start by understanding your symptoms and medical history." },
+  { title: 'Chronic Pain', path: assetUrl('../assets/optimize/chronic_pain.webp'), desc: "Ongoing pain that's affected your daily life? Let's start with a thorough evaluation and a plan built around you." },
+  { title: 'Sports Injuries', path: assetUrl('../assets/optimize/sciatica_pain.webp'), desc: "A thorough medical evaluation helps shape a plan aligned with your injury, needs, and activity goals." },
 ];
 
 // Customer-provided Google reviews. Google UI metadata and owner responses are intentionally excluded.
