@@ -216,9 +216,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 @media (max-width:960px){ .nav{ display:none; } }
 @media (max-width:720px){
-  .header .container{ gap:12px; }
-  .header-call{ padding:11px 12px; font-size:12px; }
-  .brand-logo-frame{ width:190px; height:64px; }
+  .header .container{ gap:10px; padding:0 14px; }
+  .header-call{ flex:none; gap:6px; padding:10px 12px; font-size:0; }
+  .header-call .num::after{ content:"(954) 256-9422"; font-size:12px; line-height:1; }
+  .header-call svg{ width:14px; height:14px; }
+  .brand-logo-frame{ width:150px; height:50px; }
+}
+@media (max-width:380px){
+  .header .container{ gap:8px; padding:0 12px; }
+  .header-call{ padding:9px 10px; }
+  .header-call .num::after{ font-size:11px; }
+  .brand-logo-frame{ width:126px; height:43px; }
 }
 
 /* HERO */
