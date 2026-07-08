@@ -361,25 +361,155 @@
       <h2 class="display">Good to know before you call.</h2>
     </div>
 
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-1"><span>Does RENEW accept my insurance?</span><span class="plus" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq-ans-1"><p>Most insurances are taken, or you may pay cash. Call our team to confirm your specific plan.</p></div>
+    <div class="faq-tabs" role="tablist" aria-label="FAQ categories">
+      <button class="faq-tab active" id="faq-tab-general" type="button" role="tab" aria-selected="true" aria-controls="faq-panel-general" data-faq-tab="general">General</button>
+      <button class="faq-tab" id="faq-tab-care" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-care" data-faq-tab="care">First Visit</button>
+      <button class="faq-tab" id="faq-tab-mental" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-mental" data-faq-tab="mental">Mental Wellness</button>
+      <button class="faq-tab" id="faq-tab-pain" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-pain" data-faq-tab="pain">Pain Care</button>
+      <button class="faq-tab" id="faq-tab-longevity" type="button" role="tab" aria-selected="false" aria-controls="faq-panel-longevity" data-faq-tab="longevity">Longevity</button>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-2"><span>What happens during my first evaluation?</span><span class="plus" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq-ans-2"><p>Your first visit is a thorough, physician-led evaluation. We take the time to understand your pain, its history, and its likely cause before discussing any care plan. Nothing is one-size-fits-all.</p></div>
+
+    <div class="faq-panel active" id="faq-panel-general" role="tabpanel" aria-labelledby="faq-tab-general" data-faq-panel="general">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-1"><span>What is RENEW Pain & Wellness Center?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-1"><p>RENEW is a physician-led South Florida practice offering medically supervised care across mental wellness, pain management, and longevity optimization. Every patient starts with a thorough medical evaluation before treatment is recommended.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-2"><span>Who leads care at RENEW?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-2"><p>Care is led by founder Dr. Ben Shatil. Treatment recommendations are made under physician supervision and are based on a clinical evaluation rather than automatically offering a procedure.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-3"><span>Where is RENEW located, and what are its hours?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-3"><p>RENEW is located in South Florida. Please contact the clinic to confirm the precise location, current availability, and hours before visiting.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-4"><span>Is RENEW a medical clinic or a wellness center?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-4"><p>RENEW is a physician-led medical practice, not a spa or general wellness program. Care is clinically supervised, evaluation-based, and guided by evidence-informed medical practice.</p></div>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-3"><span>Do I need a referral?</span><span class="plus" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq-ans-3"><p>In most cases you can book directly with us. If your insurance plan requires a referral, our team will walk you through exactly what's needed when you call.</p></div>
+
+    <div class="faq-panel" id="faq-panel-care" role="tabpanel" aria-labelledby="faq-tab-care" data-faq-panel="care" hidden>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-5"><span>How do I know whether RENEW is right for me?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-5"><p>The clinic recommends beginning with a consultation. The team reviews your health history, current symptoms or concerns, and treatment goals to determine whether RENEW's options may be appropriate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-6"><span>What happens during the first visit?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-6"><p>The first visit begins with a comprehensive medical evaluation, including your medical history, current symptoms, and treatments you have already tried. Treatment is not recommended until that evaluation is complete.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-7"><span>Do I need a referral to schedule a consultation?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-7"><p>No. Patients may request a consultation directly through the website or by contacting the clinic by phone.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-8"><span>Does RENEW accept insurance?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-8"><p>The website does not list specific accepted insurance plans. Contact the clinic directly for the latest information about insurance and payment options.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-9"><span>Does every patient receive the same treatments?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-9"><p>No. Recommendations are individualized based on the medical evaluation, health history, current symptoms, and patient goals.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-10"><span>Can a patient receive care in more than one treatment area?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-10"><p>Yes. Some patients may receive care across more than one category when the evaluation supports that approach, such as mental-wellness care and pain management.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-11"><span>How does ongoing monitoring work?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-11"><p>After treatment begins, the clinical team monitors the patient's response and may adjust the approach based on progress. Follow-up timing is individualized and discussed during evaluation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-12"><span>Is care at RENEW evidence-based?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-12"><p>RENEW states that recommendations are guided by clinical evaluation, current best practices, and evidence-informed clinical standards.</p></div>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-4"><span>What conditions does RENEW treat?</span><span class="plus" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq-ans-4"><p>We focus on pain management for back pain, neck pain, joint pain, sciatica, chronic pain, and sports injuries. If you're unsure whether we can help, call us and we'll point you in the right direction.</p></div>
+
+    <div class="faq-panel" id="faq-panel-mental" role="tabpanel" aria-labelledby="faq-tab-mental" data-faq-panel="mental" hidden>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-13"><span>How do I know whether I am a candidate for ketamine therapy?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-13"><p>Candidacy is determined during a medical evaluation. The clinician reviews your health history, current symptoms, and treatments you have previously tried before making a recommendation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-14"><span>What does "medically supervised" mean in practice?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-14"><p>Ketamine sessions take place in a clinical setting with a physician or qualified clinician present. Patients are monitored throughout the session and receive instructions before, during, and after the visit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-15"><span>How many ketamine sessions are normally involved?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-15"><p>RENEW does not give a fixed number. The number and frequency of sessions vary by patient and are guided by evaluation, response, and progress.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-16"><span>Can ketamine therapy be combined with other treatments?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-16"><p>Sometimes. A patient receiving ketamine may also be evaluated for other options, such as peptide support, depending on clinical needs and response.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-17"><span>What if I have already tried other treatments without enough improvement?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-17"><p>The evaluation takes your full treatment history into account before determining whether ketamine-assisted care may be appropriate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-18"><span>Is ketamine therapy appropriate for PTSD?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-18"><p>Ketamine-assisted care may be considered for people with PTSD symptoms when conventional treatments have not provided adequate improvement. Eligibility is determined through structured clinical screening.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-19"><span>What is ExoMind, and how is it used?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-19"><p>RENEW describes ExoMind as a non-invasive, device-based option that may be considered within a clinician-guided mental-wellness plan. Details and eligibility are confirmed during evaluation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-20"><span>How does Botox help with migraines?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-20"><p>Botox for migraines is described as an FDA-approved treatment that targets particular nerve pathways to help reduce the frequency and severity of chronic migraines. Treatment is generally administered every 12 weeks after evaluation.</p></div>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-5"><span>What if I call after hours?</span><span class="plus" aria-hidden="true"></span></button>
-      <div class="faq-a" id="faq-ans-5"><p>If we can't answer right away, use the callback request form below. Leave your name, phone, and a short note about your pain, and we'll get back to you as soon as we're open.</p></div>
+
+    <div class="faq-panel" id="faq-panel-pain" role="tabpanel" aria-labelledby="faq-tab-pain" data-faq-panel="pain" hidden>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-21"><span>What does "non-opioid-first pain care" mean?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-21"><p>The clinic first evaluates available alternatives before considering opioid medication. Options may include interventional procedures, regenerative therapies, anti-inflammatory medication, muscle relaxants, and other conservative options.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-22"><span>Does RENEW treat patients who are already taking opioids?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-22"><p>Yes. RENEW says it works with patients who have complex medication histories, including those already taking opioids, with a focus on safety, stability, and a thoughtful path forward.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-23"><span>What is the difference between an epidural and a nerve block?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-23"><p>Both target pain at its source. Epidurals are generally used for spine-related pain, while nerve blocks are intended to interrupt pain signals from a particular nerve or pathway.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-24"><span>What are trigger-point injections used for?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-24"><p>Trigger-point injections may be used for specific areas of muscular tightness or localized pain, especially when other treatments have not adequately improved mobility or discomfort.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-25"><span>What is regenerative medicine, and how does it differ from standard pain care?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-25"><p>RENEW describes regenerative treatments, including stem-cell and exosome approaches, as cellular-level therapies intended to support tissue healing and reduce inflammation when clinically appropriate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-26"><span>How long does it take to see results from pain procedures?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-26"><p>Response time varies by procedure, patient, condition, and treatment response. The clinician explains expectations during evaluation and monitors progress at follow-up visits.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-panel" id="faq-panel-longevity" role="tabpanel" aria-labelledby="faq-tab-longevity" data-faq-panel="longevity" hidden>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-27"><span>What is the difference between longevity care and general wellness?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-27"><p>RENEW says longevity care is physician-led and based on advanced diagnostics, clinical evaluation, medical history, health data, and diagnostic results.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-28"><span>What does baseline longevity testing include?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-28"><p>The website does not list a standard testing panel. Tests are selected during consultation based on health history and goals.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-29"><span>What is therapeutic plasma exchange?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-29"><p>Therapeutic plasma exchange is described as an advanced procedure in which a portion of the plasma in a person's blood is replaced. It is offered only when considered clinically appropriate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-30"><span>How is hormone therapy different from over-the-counter supplements?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-30"><p>Hormone therapy is physician-supervised, based on clinical testing, tailored to the patient's hormonal profile, and monitored over time rather than being a generalized supplement approach.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-31"><span>Are peptide therapies safe?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-31"><p>The website does not make an unconditional safety guarantee. Peptide recommendations are based on medical evaluation and evidence-informed protocols, with safety, dosage, and monitoring reviewed before treatment starts.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-32"><span>What is the purpose of parasite and heavy-metal detoxification?</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-ans-32"><p>This treatment is intended to address specific toxin burdens identified through testing and to support optimal function. It is offered only when clinically indicated and conducted with physician oversight.</p></div>
+      </div>
     </div>
   </div>
 </section>

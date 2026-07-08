@@ -170,6 +170,36 @@ if (carThumbs && carTitle) {
 }
 
 // 3. FAQ accordion
+const closeFaqItem = (item) => {
+  const btn = item.querySelector('.faq-q');
+  const ans = item.querySelector('.faq-a');
+  item.classList.remove('open');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  if (ans) ans.style.maxHeight = '0';
+};
+
+const faqTabs = document.querySelectorAll('[data-faq-tab]');
+const faqPanels = document.querySelectorAll('[data-faq-panel]');
+
+faqTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.faqTab;
+
+    faqTabs.forEach(item => {
+      const isActive = item === tab;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    faqPanels.forEach(panel => {
+      const isActive = panel.dataset.faqPanel === target;
+      panel.hidden = !isActive;
+      panel.classList.toggle('active', isActive);
+      panel.querySelectorAll('.faq-item.open').forEach(closeFaqItem);
+    });
+  });
+});
+
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-q');
   const ans = item.querySelector('.faq-a');
