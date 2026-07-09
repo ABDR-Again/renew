@@ -1472,7 +1472,7 @@
             throw new Error(result?.message || "Submission was not accepted.");
           }
 
-          window.location.assign("/thank-you/");
+          window.location.assign("thank-you/");
         } catch (error) {
           alertBox.innerHTML = 'We couldn’t send your request. Please try again, or call <a href="tel:+19542569422">(954) 256-9422</a>.';
           alertBox.classList.add("is-visible");

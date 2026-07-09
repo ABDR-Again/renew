@@ -32,3 +32,15 @@ dist-ssr
 
 # Previous landing page retained locally only
 old-landing-page.html
+
+# Vite cache
+.vite/
+
+# Testing and Coverage
+coverage/
+.nyc_output/
+
+# Caches
+.eslintcache
+*.tsbuildinfo
+

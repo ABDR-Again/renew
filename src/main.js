@@ -415,7 +415,7 @@ if (form) {
       }
 
       submissionAccepted = true;
-      window.location.assign('/thank-you');
+      window.location.assign('thank-you/');
     } catch {
       formStatus.innerHTML = 'We could not send your request. Please try again or call <a href="tel:+19542569422">(954) 256-9422</a>.';
       formStatus.hidden = false;
