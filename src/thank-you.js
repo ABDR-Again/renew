@@ -1,10 +1,10 @@
-const landingPagePath = '/';
+const landingPagePath = new URL('../', window.location.href).href;
 const countdownElement = document.getElementById('redirectCountdown');
-let secondsRemaining = 5;
+let secondsRemaining = 7;
 
 const renderCountdown = () => {
   const unit = secondsRemaining === 1 ? 'second' : 'seconds';
-  countdownElement.textContent = `Returning to the main page in ${secondsRemaining} ${unit}.`;
+  countdownElement.textContent = `Returning to the main website in ${secondsRemaining} ${unit}.`;
 };
 
 renderCountdown();

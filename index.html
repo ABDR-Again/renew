@@ -117,7 +117,7 @@
       margin: 0;
       color: var(--teal-900);
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: -.035em;
       line-height: 1.05;
       text-transform: uppercase;
@@ -231,6 +231,39 @@
       object-position: left center;
     }
 
+    .phone-control {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--white);
+      transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+
+    .phone-control:focus-within {
+      border-color: var(--teal-800);
+      box-shadow: 0 0 0 4px rgba(0, 86, 93, .1);
+    }
+
+    .phone-prefix {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-right: 1px solid var(--line);
+      color: var(--teal-950);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .phone-control .control {
+      min-width: 0;
+      border: 0;
+      border-radius: 0 8px 8px 0;
+      box-shadow: none;
+    }
+
+    .phone-control .control:focus { box-shadow: none; }
+
     .header-call { min-height: 44px; padding: 11px 18px; font-size: .94rem; }
     .button-label-short { display: none; }
 
@@ -287,7 +320,7 @@
       max-width: 940px;
       color: var(--white);
       font-size: clamp(2.45rem, 5.2vw, 4.35rem);
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: -.045em;
       line-height: .98;
       text-wrap: balance;
@@ -462,7 +495,7 @@
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.7);
     }
 
-    .media-frame--clinic { aspect-ratio: 1.38 / 1; }
+    .media-frame--clinic { aspect-ratio: 16 / 9; }
 
     .media-frame img {
       width: 100%;
@@ -564,6 +597,16 @@
 
     .form-alert.is-visible { display: block; }
 
+    .honeypot {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(0 0 0 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+    }
+
     .field { margin-bottom: 18px; }
 
     .field label {
@@ -629,9 +672,38 @@
       box-shadow: 0 0 0 3px rgba(180, 35, 24, .08);
     }
 
+    .field.is-invalid .phone-control {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+      box-shadow: 0 0 0 3px rgba(180, 35, 24, .08);
+    }
+
+    .field.is-invalid .phone-control .control { background: transparent; }
+
     .field.is-invalid .field-error { display: flex; }
 
     .form-submit { width: 100%; margin-top: 4px; }
+
+    .form-submit:disabled {
+      cursor: wait;
+      opacity: .82;
+      transform: none;
+    }
+
+    .button-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      border: 2px solid rgba(255,255,255,.45);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: button-spin .7s linear infinite;
+    }
+
+    .form-submit.is-loading .button-spinner { display: block; }
+
+    @keyframes button-spin { to { transform: rotate(360deg); } }
 
     .form-disclaimer {
       margin: 14px 0 0;
@@ -640,20 +712,6 @@
       line-height: 1.5;
       text-align: center;
     }
-
-    .success-panel {
-      display: none;
-      border: 1px solid #a6f4c5;
-      border-radius: 14px;
-      padding: 24px;
-      background: var(--success-soft);
-      color: #05603a;
-      text-align: center;
-    }
-
-    .success-panel.is-visible { display: block; }
-    .success-panel h3 { margin: 0 0 8px; color: var(--success); }
-    .success-panel p { margin: 0; }
 
     /* Reviews */
     .reviews-kicker {
@@ -729,6 +787,47 @@
 
     .review-arrow:hover { border-color: var(--teal-800); background: var(--teal-900); color: var(--white); }
     .review-counter { min-width: 78px; color: var(--muted); font-size: .84rem; text-align: center; }
+
+    .google-profile-cta {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      margin-top: 30px;
+      border: 1px solid rgba(0, 75, 81, .12);
+      border-radius: 10px;
+      padding: 13px 20px;
+      background: var(--teal-900);
+      color: var(--white);
+      box-shadow: 0 9px 22px rgba(2, 51, 58, .16);
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .google-profile-cta::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.2) 45%, transparent 70%);
+      transform: translateX(-130%);
+      transition: transform .55s ease;
+    }
+
+    .google-profile-cta:hover {
+      background: var(--teal-950);
+      box-shadow: 0 14px 28px rgba(2, 51, 58, .23);
+      transform: translateY(-3px);
+    }
+
+    .google-profile-cta:hover::before { transform: translateX(130%); }
+    .google-profile-cta:active { transform: translateY(0) scale(.98); }
+    .google-profile-cta svg { width: 19px; height: 19px; flex: 0 0 auto; color: var(--gold-200); }
 
     /* Footer */
     .site-footer {
@@ -895,7 +994,7 @@
           fetchpriority="high"
           decoding="async"
           alt="RENEW Pain and Wellness Center of South Florida"
-          src="./assets/optimize/logoo.webp">
+          src="./assets/images/logo-high-quality.png">
       </a>
 
       <a class="button header-call" href="tel:+19542569422" aria-label="Call RENEW at 954-256-9422">
@@ -997,12 +1096,12 @@
       <div class="container why-grid">
         <figure class="media-frame media-frame--clinic">
           <img
-            width="720"
-            height="522"
+            width="1200"
+            height="675"
             loading="lazy"
             decoding="async"
-            alt="RENEW clinic interior in Hollywood, Florida"
-            src="./assets/optimize/clinic_interior.webp">
+            alt="RENEW treatment room in Hollywood, Florida"
+            src="./assets/optimize/clinic-updated.webp">
         </figure>
 
         <div class="why-content">
@@ -1049,8 +1148,11 @@
         <div class="form-card">
           <div class="form-alert" id="form-alert" role="alert" tabindex="-1">Please correct the highlighted fields before submitting.</div>
 
-          <!-- Connect action to your CRM/Form endpoint before launch. -->
-          <form id="callback-form" novalidate>
+          <form id="callback-form" action="https://formsubmit.co/ajax/ru208208@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New callback request from the RENEW landing page">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field" data-field="name">
               <label for="full-name">Full name</label>
               <input class="control" id="full-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
@@ -1059,8 +1161,11 @@
 
             <div class="field" data-field="phone">
               <label for="phone">Phone number</label>
-              <input class="control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(954) 555-0000" required aria-describedby="phone-error">
-              <p class="field-error" id="phone-error">Enter a valid 10-digit phone number.</p>
+              <div class="phone-control">
+                <span class="phone-prefix" aria-hidden="true">+1</span>
+                <input class="control" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(954) 555-0000" maxlength="14" required aria-describedby="phone-error">
+              </div>
+              <p class="field-error" id="phone-error">Enter a valid 10-digit US phone number.</p>
             </div>
 
             <div class="field" data-field="time">
@@ -1068,7 +1173,7 @@
               <select class="control" id="best-time" name="best_time" required aria-describedby="time-error">
                 <option value="No preference">No preference</option>
                 <option>Morning (8 AM–12 PM)</option>
-                <option>Afternoon (12 PM–5 PM)</option>
+                <option>Afternoon (12 PM–4 PM)</option>
               </select>
               <p class="field-error" id="time-error">Please choose the best time to call.</p>
             </div>
@@ -1078,14 +1183,13 @@
               <textarea class="control" id="reason" name="reason" placeholder="e.g. ongoing lower-back pain" maxlength="500"></textarea>
             </div>
 
-            <button class="button button--teal form-submit" type="submit">Request a callback</button>
-            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. No detailed health information is needed here. Form is visual only—connect to your scheduling system, CRM, or email endpoint before launch.</p>
+            <button class="button button--teal form-submit" type="submit">
+              <span class="button-spinner" aria-hidden="true"></span>
+              <span class="submit-label">Request a callback</span>
+            </button>
+            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. No detailed health information is needed here.</p>
           </form>
 
-          <div class="success-panel" id="success-panel" role="status" aria-live="polite">
-            <h3>Request received</h3>
-            <p>Thank you. The clinic team will call you during business hours.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -1105,6 +1209,16 @@
             <button class="review-arrow" id="review-next" type="button" aria-label="View next reviews">→</button>
           </div>
         </div>
+        <div class="center">
+          <a class="google-profile-cta" href="https://maps.app.goo.gl/pTS69FG8J8wsbtTk9" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+            View our Google Business Profile
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -1119,7 +1233,7 @@
           loading="lazy"
           decoding="async"
           alt="RENEW Pain and Wellness Center of South Florida"
-          src="./assets/optimize/logoo.webp">
+          src="./assets/images/logo-high-quality.png">
 
         <ul class="footer-contact-list">
           <li>
@@ -1132,7 +1246,7 @@
           </li>
           <li>
             <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <span>Monday–Friday&nbsp; 8:00 AM–4:00 PM</span>
+            <span>Monday–Friday&nbsp; 8:00 AM–4:00 PM<br>Saturday–Sunday&nbsp; Closed</span>
           </li>
         </ul>
         <p class="insurance-note">Most insurances taken or cash.</p>
@@ -1256,10 +1370,12 @@
 
       const form = document.getElementById("callback-form");
       const alertBox = document.getElementById("form-alert");
-      const successPanel = document.getElementById("success-panel");
       const nameInput = document.getElementById("full-name");
       const phoneInput = document.getElementById("phone");
       const timeSelect = document.getElementById("best-time");
+      const submitButton = form?.querySelector('button[type="submit"]');
+      const submitLabel = submitButton?.querySelector(".submit-label");
+      let isSubmitting = false;
 
       if (!form) return;
 
@@ -1274,7 +1390,7 @@
 
       const rules = {
         name: () => nameInput.value.trim().length >= 2,
-        phone: () => digitsOnly(phoneInput.value).length === 10,
+        phone: () => /^[2-9]\d{2}[2-9]\d{6}$/.test(digitsOnly(phoneInput.value)),
         time: () => timeSelect.value.trim().length > 0
       };
 
@@ -1297,6 +1413,14 @@
         if (phoneInput.getAttribute("aria-invalid") === "true") validateField("phone");
       });
 
+      phoneInput.addEventListener("paste", (event) => {
+        event.preventDefault();
+        const pastedValue = event.clipboardData?.getData("text") || "";
+        const pastedDigits = digitsOnly(pastedValue);
+        phoneInput.value = formatPhone(pastedDigits.length === 11 && pastedDigits.startsWith("1") ? pastedDigits.slice(1) : pastedDigits);
+        if (phoneInput.getAttribute("aria-invalid") === "true") validateField("phone");
+      });
+
       [
         [nameInput, "name"],
         [phoneInput, "phone"],
@@ -1311,8 +1435,10 @@
         });
       });
 
-      form.addEventListener("submit", (event) => {
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        if (isSubmitting) return;
+
         const results = Object.keys(rules).map(validateField);
         const isValid = results.every(Boolean);
 
@@ -1325,12 +1451,38 @@
         }
 
         alertBox.classList.remove("is-visible");
-        form.hidden = true;
-        successPanel.classList.add("is-visible");
-        successPanel.focus?.();
+        isSubmitting = true;
+        form.setAttribute("aria-busy", "true");
+        submitButton.disabled = true;
+        submitButton.classList.add("is-loading");
+        submitLabel.textContent = "Sending request…";
 
-        // Replace the visual success behavior above with your actual async submission.
-        // Keep server-side validation enabled even when client-side validation is present.
+        const submission = new FormData(form);
+        submission.set("phone", `+1 ${phoneInput.value}`);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: submission,
+            headers: { Accept: "application/json" }
+          });
+          const result = await response.json().catch(() => null);
+
+          if (!response.ok || result?.success === "false" || result?.success === false) {
+            throw new Error(result?.message || "Submission was not accepted.");
+          }
+
+          window.location.assign("/thank-you/");
+        } catch (error) {
+          alertBox.innerHTML = 'We couldn’t send your request. Please try again, or call <a href="tel:+19542569422">(954) 256-9422</a>.';
+          alertBox.classList.add("is-visible");
+          alertBox.focus();
+          isSubmitting = false;
+          form.removeAttribute("aria-busy");
+          submitButton.disabled = false;
+          submitButton.classList.remove("is-loading");
+          submitLabel.textContent = "Request a callback";
+        }
       });
     })();
   </script>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#02333a">
+  <meta name="description" content="Your callback request has been received by RENEW Pain &amp; Wellness Center.">
+  <title>Thank You | RENEW Pain &amp; Wellness</title>
+  <link rel="icon" type="image/webp" href="../assets/optimize/favicon.webp">
+  <style>
+    :root { --teal:#02333a; --teal-light:#0b6870; --gold:#c59e29; --ivory:#fbfaf5; --muted:#5f6f70; }
+    * { box-sizing:border-box; }
+    body {
+      min-width:320px; min-height:100vh; margin:0; display:grid; place-items:center; overflow:hidden;
+      padding:32px 20px; color:var(--teal); font-family:"Avenir Next",Avenir,"Segoe UI",Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(197,158,41,.14), transparent 31%),
+        radial-gradient(circle at 88% 90%, rgba(11,104,112,.14), transparent 34%),
+        var(--ivory);
+    }
+    .orb { position:fixed; border-radius:50%; pointer-events:none; filter:blur(1px); animation:drift 8s ease-in-out infinite alternate; }
+    .orb.one { width:220px; height:220px; top:-90px; right:-65px; background:rgba(197,158,41,.12); }
+    .orb.two { width:180px; height:180px; bottom:-65px; left:-55px; background:rgba(11,104,112,.11); animation-delay:-3s; }
+    .card {
+      position:relative; width:min(100%,700px); padding:clamp(32px,7vw,68px); border:1px solid rgba(2,51,58,.09);
+      border-radius:28px; background:rgba(255,255,255,.92); box-shadow:0 26px 70px rgba(2,51,58,.14);
+      text-align:center; animation:card-in .7s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .logo { width:min(100%,310px); height:auto; margin:0 auto 34px; }
+    .success { width:92px; height:92px; margin:0 auto 26px; }
+    .success circle { fill:rgba(11,104,112,.1); stroke:var(--teal-light); stroke-width:2; }
+    .success path { fill:none; stroke:var(--gold); stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:46; stroke-dashoffset:46; animation:draw .55s .45s ease-out forwards; }
+    h1 { margin:0; font-size:clamp(2.6rem,8vw,4.8rem); line-height:1; letter-spacing:-.045em; }
+    .lead { max-width:540px; margin:20px auto 0; color:var(--muted); font-size:clamp(1rem,2.4vw,1.18rem); line-height:1.65; }
+    .countdown { margin:25px 0 0; color:var(--teal-light); font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; }
+    .actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border-radius:9px; padding:12px 20px; background:var(--gold); color:white; font-weight:700; text-decoration:none; }
+    .call { margin:22px 0 0; color:var(--muted); font-size:.9rem; }
+    .call a { color:var(--teal); font-weight:700; }
+    @keyframes card-in { from { opacity:0; transform:translateY(24px) scale(.97); } }
+    @keyframes draw { to { stroke-dashoffset:0; } }
+    @keyframes drift { to { transform:translate3d(18px,14px,0) scale(1.08); } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; } .success path { stroke-dashoffset:0; } }
+  </style>
+</head>
+<body>
+  <span class="orb one" aria-hidden="true"></span>
+  <span class="orb two" aria-hidden="true"></span>
+  <main class="card">
+    <img class="logo" src="../assets/images/logo-high-quality.png" alt="RENEW Pain and Wellness Center of South Florida">
+    <svg class="success" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="28"/>
+      <path d="M18 32.5 27.5 42 46 22"/>
+    </svg>
+    <h1>Thank you.</h1>
+    <p class="lead">Your callback request is on its way to the RENEW team. We’ll contact you during clinic hours.</p>
+    <p class="countdown" id="redirectCountdown" role="status" aria-live="polite">Returning to the main website in 7 seconds.</p>
+    <div class="actions"><a class="button" href="../">Return now</a></div>
+    <p class="call">Need immediate assistance? <a href="tel:+19542569422">Call (954) 256-9422</a></p>
+  </main>
+  <script type="module" src="../src/thank-you.js"></script>
+</body>
+</html>
