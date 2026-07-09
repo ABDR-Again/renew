@@ -8,15 +8,17 @@
   <meta name="description" content="Physician-led pain relief in Hollywood, Florida. Call RENEW or request a callback.">
   <title>RENEW Pain &amp; Wellness Center | Hollywood, FL</title>
   <link rel="icon" type="image/webp" href="./assets/optimize/favicon.webp">
-
-  <!--
-    FONT PERFORMANCE
-    This page intentionally uses a fast system-font stack, avoiding a render-blocking font request.
-    For exact brand typography, self-host one compressed WOFF2 family and add a font-face rule here
-    with font-display: swap. Keep only the weights actually used (400, 600, 700, 800).
-  -->
+  <link rel="preload" href="./assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face {
+      font-family: "Clash Display";
+      src: url("./assets/fonts/ClashDisplay-Variable.woff2") format("woff2");
+      font-weight: 200 700;
+      font-display: swap;
+      font-style: normal;
+    }
+
     :root {
       --teal-950: #02333a;
       --teal-925: #003b43;
@@ -43,7 +45,7 @@
       --radius-md: 16px;
       --radius-lg: 24px;
       --container: 1120px;
-      --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-sans: "Clash Display", "Segoe UI", Helvetica, Arial, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -192,7 +194,13 @@
       box-shadow: 0 11px 24px rgba(2, 51, 58, .26);
     }
 
-    .button svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    .button svg,
+    .button .button-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      object-fit: contain;
+    }
 
     /* Header */
     .site-header {
@@ -424,11 +432,26 @@
       box-shadow: 0 16px 28px rgba(2, 51, 58, .11);
     }
 
-    .condition-card svg {
-      width: 40px;
-      height: 40px;
-      color: var(--teal-800);
-      stroke-width: 1.7;
+    .condition-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--teal-800), var(--teal-950));
+      box-shadow: 0 12px 24px rgba(2, 51, 58, .14);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .condition-card:hover .condition-icon {
+      transform: translateY(-2px) scale(1.04);
+      background: linear-gradient(145deg, var(--teal-900), var(--gold-600));
+    }
+
+    .condition-icon img {
+      width: 37px;
+      height: 37px;
+      object-fit: contain;
     }
 
     .condition-card strong { color: var(--teal-900); font-size: 1rem; }
@@ -455,7 +478,7 @@
       height: 48px;
       display: grid;
       place-items: center;
-      margin: 0 auto 22px;
+      margin: 0 auto 18px;
       border-radius: 9px;
       background: var(--gold-500);
       color: var(--white);
@@ -520,7 +543,21 @@
       align-items: start;
     }
 
-    .benefit svg { width: 28px; height: 28px; color: var(--teal-800); }
+    .benefit-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--teal-900);
+      box-shadow: 0 8px 16px rgba(2, 51, 58, .1);
+    }
+
+    .benefit-icon img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
 
     .benefit h3 {
       margin: 0;
@@ -565,7 +602,7 @@
       color: var(--teal-800);
     }
 
-    .status-icon svg { width: 21px; height: 21px; }
+    .status-icon img { width: 21px; height: 21px; object-fit: contain; }
 
     .status-card p { margin: 0; color: #435758; font-size: .92rem; }
     .status-card strong { color: var(--teal-900); }
@@ -827,7 +864,7 @@
 
     .google-profile-cta:hover::before { transform: translateX(130%); }
     .google-profile-cta:active { transform: translateY(0) scale(.98); }
-    .google-profile-cta svg { width: 19px; height: 19px; flex: 0 0 auto; color: var(--gold-200); }
+    .google-profile-cta img { width: 19px; height: 19px; flex: 0 0 auto; object-fit: contain; }
 
     /* Footer */
     .site-footer {
@@ -875,7 +912,7 @@
       color: var(--white);
     }
 
-    .footer-icon svg { width: 17px; height: 17px; }
+    .footer-icon img { width: 17px; height: 17px; object-fit: contain; }
 
     .footer-contact-list a {
       color: var(--white);
@@ -949,7 +986,8 @@
       .section-title { font-size: 2rem; }
       .condition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 34px; }
       .condition-card { min-height: 135px; gap: 13px; }
-      .condition-card svg { width: 32px; height: 32px; }
+      .condition-icon { width: 48px; height: 48px; border-radius: 14px; }
+      .condition-icon img { width: 31px; height: 31px; }
       .condition-card strong { font-size: .9rem; }
       .steps-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
       .step p { max-width: 340px; }
@@ -998,7 +1036,7 @@
       </a>
 
       <a class="button header-call" href="tel:+19542569422" aria-label="Call RENEW at 954-256-9422">
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+        <img class="button-icon" src="./assets/icons/phone-negative-white.svg" alt="" aria-hidden="true" width="18" height="18">
         <span class="button-label-long">(954) 256-9422</span><span class="button-label-short">Call</span>
       </a>
     </div>
@@ -1014,7 +1052,7 @@
 
           <div class="hero-actions">
             <a class="button hero-call" href="tel:+19542569422">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+              <img class="button-icon" src="./assets/icons/phone-negative-white.svg" alt="" aria-hidden="true" width="18" height="18">
               Call (954) 256-9422
             </a>
           </div>
@@ -1045,23 +1083,23 @@
 
         <div class="condition-grid">
           <article class="condition-card">
-            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M25 6c-3 5-1 8-1 12s-4 6-3 11 5 6 3 13"/><path d="M19 8c2 4 1 7 0 10-1 4 1 7 3 9"/><circle cx="25" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
+            <span class="condition-icon" aria-hidden="true"><img src="./assets/icons/Spine%20and%20Alignment.svg" alt="" width="37" height="37" loading="lazy" decoding="async"></span>
             <strong>Back pain</strong>
           </article>
           <article class="condition-card">
-            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="5"/><path d="M24 9v30M9 24h30" opacity=".45"/></svg>
+            <span class="condition-icon" aria-hidden="true"><img src="./assets/icons/Joint%20and%20Mobility%20Care.svg" alt="" width="37" height="37" loading="lazy" decoding="async"></span>
             <strong>Neck pain</strong>
           </article>
           <article class="condition-card">
-            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 14c-5 0-9 4-9 10s4 10 9 10c3 0 5-2 6-4 1 2 3 4 6 4 5 0 9-4 9-10s-4-10-9-10c-3 0-5 2-6 4-1-2-3-4-6-4Z"/><path d="M21 18c-1 4-1 8 0 12M27 18c1 4 1 8 0 12"/></svg>
+            <span class="condition-icon" aria-hidden="true"><img src="./assets/icons/Joint%20and%20Mobility%20Care.svg" alt="" width="37" height="37" loading="lazy" decoding="async"></span>
             <strong>Joint pain</strong>
           </article>
           <article class="condition-card">
-            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="4"/><path d="M24 4v5M24 39v5M4 24h5M39 24h5"/></svg>
+            <span class="condition-icon" aria-hidden="true"><img src="./assets/icons/Chronic%20Pain%20Management.svg" alt="" width="37" height="37" loading="lazy" decoding="async"></span>
             <strong>Sciatica</strong>
           </article>
           <article class="condition-card">
-            <svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="5"/><path d="M14 13l20 22M34 13 14 35" opacity=".35"/></svg>
+            <span class="condition-icon" aria-hidden="true"><img src="./assets/icons/Pain%20Relief.svg" alt="" width="37" height="37" loading="lazy" decoding="async"></span>
             <strong>Chronic pain</strong>
           </article>
         </div>
@@ -1108,21 +1146,21 @@
           <h2 class="section-title" id="why-title">Why Renew</h2>
           <ul class="benefit-list">
             <li class="benefit">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span class="benefit-icon" aria-hidden="true"><img src="./assets/icons/location-negative-white.svg" alt="" width="22" height="22" loading="lazy" decoding="async"></span>
               <div><h3>Local to Hollywood</h3><p>Care close to home, with a clinic team based right here in South Florida.</p></div>
             </li>
             <li class="benefit">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.3-4.5 2.3.9-5-3.6-3.5 5-.7L12 3Z"/><path d="M4 20h16"/></svg>
+              <span class="benefit-icon" aria-hidden="true"><img src="./assets/icons/Medical%20Excellence.svg" alt="" width="22" height="22" loading="lazy" decoding="async"></span>
               <div><h3>Physician-led</h3><p>Every plan is directed and medically supervised by our physician.</p></div>
             </li>
             <li class="benefit">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-3 4-4 7-4 2 0 3 1 4 2l2-2 5 5-4 4-3-1-3 3-6-1-2-6Z"/><path d="M8 13l3 1 3-2"/></svg>
+              <span class="benefit-icon" aria-hidden="true"><img src="./assets/icons/Compassionate%20Care.svg" alt="" width="22" height="22" loading="lazy" decoding="async"></span>
               <div><h3>Patient-first</h3><p>Evaluation-first, non-opioid options, and no rushed decisions.</p></div>
             </li>
           </ul>
 
           <a class="button" href="tel:+19542569422">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+            <img class="button-icon" src="./assets/icons/phone-negative-white.svg" alt="" aria-hidden="true" width="18" height="18">
             Call (954) 256-9422
           </a>
         </div>
@@ -1137,7 +1175,7 @@
 
           <div class="status-card">
             <span class="status-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <img src="./assets/icons/clock-positive-light.svg" alt="" width="21" height="21" loading="lazy" decoding="async">
             </span>
             <p><strong>Closed right now?</strong> Leave your number and we’ll call you back during clinic hours.</p>
           </div>
@@ -1211,10 +1249,7 @@
         </div>
         <div class="center">
           <a class="google-profile-cta" href="https://maps.app.goo.gl/pTS69FG8J8wsbtTk9" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
-              <circle cx="12" cy="10" r="2.5"/>
-            </svg>
+            <img src="./assets/icons/location-negative-white.svg" alt="" aria-hidden="true" width="19" height="19" loading="lazy" decoding="async">
             View our Google Business Profile
             <span aria-hidden="true">↗</span>
           </a>
@@ -1237,15 +1272,15 @@
 
         <ul class="footer-contact-list">
           <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span class="footer-icon" aria-hidden="true"><img src="./assets/icons/location-negative-white.svg" alt="" width="17" height="17" loading="lazy" decoding="async"></span>
             <span>4614 Hollywood Blvd<br>Hollywood, FL 33021</span>
           </li>
           <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.71a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.31 1.71.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span class="footer-icon" aria-hidden="true"><img src="./assets/icons/phone-negative-white.svg" alt="" width="17" height="17" loading="lazy" decoding="async"></span>
             <a href="tel:+19542569422">(954) 256-9422</a>
           </li>
           <li>
-            <span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span class="footer-icon" aria-hidden="true"><img src="./assets/icons/clock-negative-white.svg" alt="" width="17" height="17" loading="lazy" decoding="async"></span>
             <span>Monday–Friday&nbsp; 8:00 AM–4:00 PM<br>Saturday–Sunday&nbsp; Closed</span>
           </li>
         </ul>
