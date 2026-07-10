@@ -8,6 +8,7 @@
   <meta name="description" content="Physician-led pain relief in Hollywood, Florida. Call RENEW or request a callback.">
   <title>RENEW Pain &amp; Wellness Center | Hollywood, FL</title>
   <link rel="icon" type="image/webp" href="./assets/optimize/favicon.webp">
+  <link rel="preload" as="image" href="./assets/optimize/hero.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" href="./assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
@@ -285,9 +286,35 @@
       color: var(--white);
     }
 
+    .hero-media {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(2, 51, 58, .9) 0%, rgba(2, 51, 58, .78) 48%, rgba(2, 51, 58, .44) 100%),
+        radial-gradient(circle at 92% 20%, rgba(0, 100, 106, .42) 0, rgba(0, 100, 106, 0) 32%);
+    }
+
     .hero::after {
       content: "";
       position: absolute;
+      z-index: 1;
       inset: 0;
       pointer-events: none;
       opacity: .16;
@@ -298,7 +325,7 @@
 
     .hero-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       min-height: 530px;
       display: grid;
       align-items: center;
@@ -366,13 +393,14 @@
     .micro-proof span::before { content: "✓"; color: #e1c967; font-weight: 900; }
 
     .callback-inline {
-      margin: 12px 0 0;
+      margin: 18px 0 0;
       color: rgba(255,255,255,.74);
       font-size: .86rem;
     }
 
     .callback-inline a {
       color: var(--white);
+      margin-left: 6px;
       font-weight: 800;
       text-underline-offset: 3px;
       transition: color .18s ease;
@@ -1044,6 +1072,15 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          width="1280"
+          height="853"
+          fetchpriority="high"
+          decoding="async"
+          alt=""
+          src="./assets/optimize/hero.webp">
+      </div>
       <div class="container hero-inner">
         <div class="hero-content">
           <span class="location-pill">Hollywood, FL</span>
