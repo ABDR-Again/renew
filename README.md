@@ -10,8 +10,8 @@ A highly optimized landing page for RENEW Pain & Wellness Center. Built with Vit
 
 ## Callback form
 
-The callback form posts to FormSubmit using `ru208208@gmail.com` as the primary
-recipient and `care@renewpainwellness.com` as the `_cc` recipient. It uses the
-standard FormSubmit endpoint so first-time submissions can trigger the primary
-recipient confirmation flow, then redirects successful submissions to
+The callback form posts to Submify using `ru208208@gmail.com` as the primary
+recipient and `care@renewpainwellness.com` as the `_cc` recipient. First-time
+submissions should trigger Submify's primary recipient confirmation flow, then
+redirect successful submissions to
 `https://landing.renewpainwellness.com/thank-you/`.
