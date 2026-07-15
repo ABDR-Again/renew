@@ -1245,12 +1245,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-card">
           <div class="form-alert" id="form-alert" role="alert" tabindex="-1">Please correct the highlighted fields before submitting.</div>
 
-          <form id="callback-form" action="https://submify.vercel.app/ru208208@gmail.com" method="POST" novalidate>
-            <input type="hidden" name="_subject" value="New callback request from the RENEW landing page">
-            <input type="hidden" name="_cc" value="care@renewpainwellness.com">
-            <input type="hidden" name="_next" value="https://landing.renewpainwellness.com/thank-you/">
-            <input type="hidden" name="_template" value="table">
-            <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <form id="callback-form" action="https://script.google.com/macros/s/AKfycbwqzZWux0NlSKfedCjzo1Z6KXkxlDqJS83VmrhKQpZ4Et1JtY6om9-PxOs0t4mKU-XU/exec" method="POST" accept-charset="UTF-8" novalidate>
+            <input type="hidden" name="form_name" value="RENEW Landing Page Callback Form">
+            <input type="hidden" name="cc_email" value="care@renewpainwellness.com">
+            <input type="hidden" id="submission-page" name="submission_page" value="">
+            <input type="hidden" id="form-gclid" name="gclid" value="">
+            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field" data-field="name">
               <label for="full-name">Full name</label>
               <input class="control" id="full-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
@@ -1261,7 +1261,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label for="phone">Phone number</label>
               <div class="phone-control">
                 <span class="phone-prefix" aria-hidden="true">+1</span>
-                <input class="control" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(954) 555-0000" maxlength="14" required aria-describedby="phone-error">
+                <input class="control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(954) 555-0000" maxlength="14" required aria-describedby="phone-error">
               </div>
               <p class="field-error" id="phone-error">Enter a valid 10-digit US phone number.</p>
             </div>
@@ -1270,22 +1270,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label for="best-time">Best time to call</label>
               <select class="control" id="best-time" name="best_time" required aria-describedby="time-error">
                 <option value="No preference">No preference</option>
-                <option>Morning (8 AM–12 PM)</option>
-                <option>Afternoon (12 PM–4 PM)</option>
+                <option value="Morning (8 AM–12 PM)">Morning (8 AM–12 PM)</option>
+                <option value="Afternoon (12 PM–4 PM)">Afternoon (12 PM–4 PM)</option>
               </select>
               <p class="field-error" id="time-error">Please choose the best time to call.</p>
             </div>
 
             <div class="field" data-field="reason">
               <label for="reason">Reason for call <span class="optional">(optional)</span></label>
-              <textarea class="control" id="reason" name="reason" placeholder="e.g. ongoing lower-back pain" maxlength="500"></textarea>
+              <textarea class="control" id="reason" name="reason" placeholder="Please provide a brief reason for your callback request" maxlength="500"></textarea>
             </div>
 
             <button class="button button--teal form-submit" type="submit">
               <span class="button-spinner" aria-hidden="true"></span>
               <span class="submit-label">Request a callback</span>
             </button>
-            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. No detailed health information is needed here.</p>
+            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. Please do not include private or detailed medical information.</p>
           </form>
 
         </div>
@@ -1470,9 +1470,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const timeSelect = document.getElementById("best-time");
       const submitButton = form?.querySelector('button[type="submit"]');
       const submitLabel = submitButton?.querySelector(".submit-label");
+      const submissionPageField = document.getElementById("submission-page");
+      const gclidField = document.getElementById("form-gclid");
+      const urlParameters = new URLSearchParams(window.location.search);
       let isSubmitting = false;
 
       if (!form) return;
+
+      if (submissionPageField) {
+        submissionPageField.value = window.location.href;
+      }
+
+      const currentGclid = urlParameters.get("gclid");
+
+      if (currentGclid) {
+        localStorage.setItem("renew_gclid", currentGclid);
+      }
+
+      if (gclidField) {
+        gclidField.value = currentGclid || localStorage.getItem("renew_gclid") || "";
+      }
 
       const digitsOnly = (value) => value.replace(/\D/g, "");
 

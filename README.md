@@ -10,8 +10,8 @@ A highly optimized landing page for RENEW Pain & Wellness Center. Built with Vit
 
 ## Callback form
 
-The callback form posts to Submify using `ru208208@gmail.com` as the primary
-recipient and `care@renewpainwellness.com` as the `_cc` recipient. First-time
-submissions should trigger Submify's primary recipient confirmation flow, then
-redirect successful submissions to
-`https://landing.renewpainwellness.com/thank-you/`.
+The callback form posts to the Google Apps Script URL configured in the form
+`action`. Replace `YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL` with the deployed Apps
+Script `/exec` URL before publishing. The form sends `form_name`,
+`submission_page`, optional `gclid`, a `website` honeypot field, and
+`cc_email=care@renewpainwellness.com` for the email copy.
