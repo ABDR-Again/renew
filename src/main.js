@@ -41,11 +41,6 @@ const testimonials = [
     text: "I've had an excellent experience at Renew Pain & Wellness. Dr. Sina is one of the few physicians I've met who truly takes the time to listen and understand what you're going through before recommending treatment. I never felt rushed.",
   },
   {
-    name: "Eli's Mom",
-    rating: 5,
-    text: "I recently completed ketamine IV therapy at Renew, and I couldn't have asked for a better experience. I was nervous going into my first treatment, but the medical staff made me feel comfortable from the moment I arrived.",
-  },
-  {
     name: 'Davie Shatil',
     rating: 5,
     text: 'I almost never write reviews, but this place deserves one. After trying multiple doctors over the years, Renew has been the first office that truly listened.',
@@ -54,11 +49,6 @@ const testimonials = [
     name: 'S D',
     rating: 5,
     text: "I honestly can't say enough good things about Renew Pain & Wellness Center of South Florida. After struggling to find a practice that actually listens and treats you like a person instead of just another appointment, I finally found Renew.",
-  },
-  {
-    name: 'Steven Foley',
-    rating: 5,
-    text: 'Longevity Care Worth Doing for Your Family. Renew Pain & Wellness Center delivered outstanding longevity and wellness care.',
   },
   {
     name: 'Arielle Zeligman',
