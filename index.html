@@ -1248,8 +1248,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <form id="callback-form" accept-charset="UTF-8" novalidate>
             <input type="hidden" name="form_name" value="RENEW Landing Page Callback Form">
             <input type="hidden" name="cc_email" value="care@renewpainwellness.com">
-            <input type="hidden" id="submission-page" name="submission_page" value="">
-            <input type="hidden" id="form-gclid" name="gclid" value="">
             <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field" data-field="name">
               <label for="full-name">Full name</label>
@@ -1277,13 +1275,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="field" data-field="reason">
-              <label for="reason">Reason for call <span class="optional">(optional)</span></label>
-              <textarea class="control" id="reason" name="reason" placeholder="Please provide a brief reason for your callback request" maxlength="500"></textarea>
+              <label for="reason">Callback topic</label>
+              <select class="control" id="reason" name="reason" required aria-describedby="reason-error">
+                <option value="">Select a topic</option>
+                <option value="Scheduling">Scheduling</option>
+                <option value="Insurance or payment">Insurance or payment</option>
+                <option value="General callback">General callback</option>
+                <option value="Existing appointment">Existing appointment</option>
+                <option value="Other">Other</option>
+              </select>
+              <p class="field-error" id="reason-error">Please choose a callback topic.</p>
             </div>
 
             <button class="button button--teal form-submit" type="submit">
               <span class="button-spinner" aria-hidden="true"></span>
-              <span class="submit-label">Request a callback</span>
+              <span class="submit-label">Request a Callback</span>
             </button>
             <p class="form-disclaimer">By submitting, you agree to be contacted about your request. Please do not include private or detailed medical information.</p>
           </form>
@@ -1468,28 +1474,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const nameInput = document.getElementById("full-name");
       const phoneInput = document.getElementById("phone");
       const timeSelect = document.getElementById("best-time");
+      const reasonSelect = document.getElementById("reason");
       const submitButton = form?.querySelector('button[type="submit"]');
       const submitLabel = submitButton?.querySelector(".submit-label");
-      const submissionPageField = document.getElementById("submission-page");
-      const gclidField = document.getElementById("form-gclid");
-      const urlParameters = new URLSearchParams(window.location.search);
       let isSubmitting = false;
 
       if (!form) return;
-
-      if (submissionPageField) {
-        submissionPageField.value = window.location.href;
-      }
-
-      const currentGclid = urlParameters.get("gclid");
-
-      if (currentGclid) {
-        localStorage.setItem("renew_gclid", currentGclid);
-      }
-
-      if (gclidField) {
-        gclidField.value = currentGclid || localStorage.getItem("renew_gclid") || "";
-      }
 
       const digitsOnly = (value) => value.replace(/\D/g, "");
 
@@ -1503,7 +1493,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const rules = {
         name: () => nameInput.value.trim().length >= 2,
         phone: () => /^[2-9]\d{2}[2-9]\d{6}$/.test(digitsOnly(phoneInput.value)),
-        time: () => timeSelect.value.trim().length > 0
+        time: () => timeSelect.value.trim().length > 0,
+        reason: () => reasonSelect.value.trim().length > 0
       };
 
       const setValidityUI = (key, isValid) => {
@@ -1536,7 +1527,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       [
         [nameInput, "name"],
         [phoneInput, "phone"],
-        [timeSelect, "time"]
+        [timeSelect, "time"],
+        [reasonSelect, "reason"]
       ].forEach(([control, key]) => {
         control.addEventListener("blur", () => validateField(key));
         control.addEventListener("input", () => {
@@ -1584,11 +1576,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .then(response => response.json())
         .then(data => {
           if (data.status === 'success') {
-            window.location.href = data.redirectUrl || "./thank-you/";
+            window.location.href = "./thank-you/";
           } else if (data.status === 'error') {
             alert(data.message || "An error occurred.");
             phoneInput.value = originalPhone;
-            submitLabel.textContent = "Request a callback";
+            submitLabel.textContent = "Request a Callback";
             submitButton.disabled = false;
             submitButton.classList.remove("is-loading");
             form.removeAttribute("aria-busy");
@@ -1599,7 +1591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           console.error("Error submitting form:", error);
           alert("A network error occurred. Please try again.");
           phoneInput.value = originalPhone;
-          submitLabel.textContent = "Request a callback";
+          submitLabel.textContent = "Request a Callback";
           submitButton.disabled = false;
           submitButton.classList.remove("is-loading");
           form.removeAttribute("aria-busy");
