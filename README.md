@@ -10,9 +10,9 @@ A highly optimized landing page for RENEW Pain & Wellness Center. Built with Vit
 
 ## Callback form
 
-The callback form posts to the Google Apps Script URL configured in the form
-`action`. Replace `YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL` with the deployed Apps
-Script `/exec` URL before publishing. The page must not send form fields,
-callback topics, click IDs, or message content to GTM, GA4, Google Ads, the
-data layer, URL parameters, or Enhanced Conversions. Tracking should rely only
-on the successful `/thank-you/` pageview.
+The paid landing page callback form posts a limited lead payload to the
+configured Google Apps Script endpoint: form name, full name, phone, email, best
+time to call, and a safe callback-topic dropdown. It must not send click IDs,
+full page URLs, URL parameters, free-text medical details, or form field values
+to GTM, GA4, Google Ads, the data layer, or Enhanced Conversions. Tracking
+should rely on the successful `/thank-you/` pageview.

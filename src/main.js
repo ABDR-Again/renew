@@ -328,94 +328,17 @@ const initTestimonialCarousel = () => {
 
 initTestimonialCarousel();
 
-// 5. Callback form with validation and confirmed-success redirect
+// 5. Legacy callback form guard. The paid page uses the inline form in
+// index.html; old callback forms should not submit stale hidden tracking fields.
 const form = document.getElementById('callbackForm');
 if (form) {
-  const nameInput = document.getElementById('cbName');
-  const phoneInput = document.getElementById('cbPhone');
-  const submitButton = form.querySelector('button[type="submit"]');
   const formStatus = document.getElementById('formStatus');
-  let isSubmitting = false;
-
-  const setFieldError = (field, hasError) => {
-    field.classList.toggle('error', hasError);
-    field.setAttribute('aria-invalid', String(hasError));
-  };
-
-  const clearStatus = () => {
-    formStatus.hidden = true;
-    formStatus.textContent = '';
-  };
-
-  [nameInput, phoneInput].forEach((field) => {
-    field.addEventListener('input', () => {
-      setFieldError(field, false);
-      clearStatus();
-    });
-  });
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (isSubmitting) return;
-
-    let ok = true;
-    clearStatus();
-    [nameInput, phoneInput].forEach((field) => setFieldError(field, false));
-
-    if (!nameInput.value.trim()) {
-      setFieldError(nameInput, true);
-      ok = false;
-    }
-
-    const phoneValue = phoneInput.value.trim();
-    const phoneRegex = /^[\d\s\-+().]+$/;
-    const phoneDigits = phoneValue.replace(/\D/g, '');
-    if (!phoneValue || !phoneRegex.test(phoneValue) || phoneDigits.length < 10) {
-      setFieldError(phoneInput, true);
-      ok = false;
-    }
-
-    if (!ok) {
-      form.querySelector('[aria-invalid="true"]')?.focus();
-      return;
-    }
-
-    const endpoint = form.dataset.endpoint || import.meta.env.VITE_CALLBACK_FORM_ENDPOINT;
-    if (!endpoint) {
-      formStatus.innerHTML = 'Callback requests are temporarily unavailable. Please call <a href="tel:+19542569422">(954) 256-9422</a>.';
+    if (formStatus) {
+      formStatus.innerHTML = 'Online callback requests are unavailable. Please call <a href="tel:+19542569422">(954) 256-9422</a>.';
       formStatus.hidden = false;
-      return;
-    }
-
-    isSubmitting = true;
-    form.setAttribute('aria-busy', 'true');
-    submitButton.disabled = true;
-    submitButton.textContent = submitButton.dataset.loadingLabel;
-    let submissionAccepted = false;
-
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
-      });
-
-      if (!response.ok) {
-        throw new Error(`Form submission failed with status ${response.status}`);
-      }
-
-      submissionAccepted = true;
-      window.location.assign('thank-you/');
-    } catch {
-      formStatus.innerHTML = 'We could not send your request. Please try again or call <a href="tel:+19542569422">(954) 256-9422</a>.';
-      formStatus.hidden = false;
-    } finally {
-      if (!submissionAccepted) {
-        isSubmitting = false;
-        form.removeAttribute('aria-busy');
-        submitButton.disabled = false;
-        submitButton.textContent = submitButton.dataset.idleLabel;
-      }
     }
   });
 }

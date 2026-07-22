@@ -248,39 +248,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       object-position: left center;
     }
 
-    .phone-control {
-      display: flex;
-      align-items: stretch;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: var(--white);
-      transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
-    }
-
-    .phone-control:focus-within {
-      border-color: var(--teal-800);
-      box-shadow: 0 0 0 4px rgba(0, 86, 93, .1);
-    }
-
-    .phone-prefix {
-      display: inline-flex;
-      align-items: center;
-      padding: 0 12px;
-      border-right: 1px solid var(--line);
-      color: var(--teal-950);
-      font-weight: 600;
-      user-select: none;
-    }
-
-    .phone-control .control {
-      min-width: 0;
-      border: 0;
-      border-radius: 0 8px 8px 0;
-      box-shadow: none;
-    }
-
-    .phone-control .control:focus { box-shadow: none; }
-
     .header-call { min-height: 44px; padding: 11px 18px; font-size: .94rem; }
     .button-label-short { display: none; }
 
@@ -672,16 +639,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .form-alert.is-visible { display: block; }
 
-    .honeypot {
-      position: absolute !important;
-      width: 1px !important;
-      height: 1px !important;
-      overflow: hidden !important;
-      clip: rect(0 0 0 0) !important;
-      clip-path: inset(50%) !important;
-      white-space: nowrap !important;
-    }
-
     .field { margin-bottom: 18px; }
 
     .field label {
@@ -691,8 +648,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: .84rem;
       font-weight: 800;
     }
-
-    .field .optional { color: #7d8888; font-weight: 500; }
 
     .control {
       width: 100%;
@@ -707,7 +662,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .control::placeholder { color: #8d9898; }
-
     .control:hover { border-color: #9fb4af; }
 
     .control:focus {
@@ -715,7 +669,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       box-shadow: 0 0 0 4px rgba(0, 86, 93, .1);
     }
 
-    textarea.control { min-height: 88px; resize: vertical; }
+    .phone-control {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--white);
+      transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+
+    .phone-control:focus-within {
+      border-color: var(--teal-800);
+      box-shadow: 0 0 0 4px rgba(0, 86, 93, .1);
+    }
+
+    .phone-prefix {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-right: 1px solid var(--line);
+      color: var(--teal-950);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .phone-control .control {
+      min-width: 0;
+      border: 0;
+      border-radius: 0 8px 8px 0;
+      box-shadow: none;
+    }
+
+    .phone-control .control:focus { box-shadow: none; }
 
     .field-error {
       display: none;
@@ -741,12 +726,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: 900;
     }
 
-    .field.is-invalid .control {
-      border-color: var(--danger);
-      background: var(--danger-soft);
-      box-shadow: 0 0 0 3px rgba(180, 35, 24, .08);
-    }
-
+    .field.is-invalid .control,
     .field.is-invalid .phone-control {
       border-color: var(--danger);
       background: var(--danger-soft);
@@ -754,7 +734,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     .field.is-invalid .phone-control .control { background: transparent; }
-
     .field.is-invalid .field-error { display: flex; }
 
     .form-submit { width: 100%; margin-top: 4px; }
@@ -1248,19 +1227,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="status-icon" aria-hidden="true">
               <img src="./assets/icons/clock-positive-light.svg" alt="" width="21" height="21" loading="lazy" decoding="async">
             </span>
-            <p><strong>Closed right now?</strong> Leave your number and we’ll call you back during clinic hours.</p>
+            <p><strong>Closed right now?</strong> Leave your contact details and we’ll call you back during clinic hours.</p>
           </div>
 
-          <p class="callback-body">It’s also here for when you’re not ready to talk yet—share a few details and our team will reach out. Calling is still the fastest way to be seen.</p>
+          <p class="callback-body">Use this form for scheduling and callback coordination only. Calling is still the fastest way to be seen.</p>
         </div>
 
         <div class="form-card">
           <div class="form-alert" id="form-alert" role="alert" tabindex="-1">Please correct the highlighted fields before submitting.</div>
 
           <form id="callback-form" accept-charset="UTF-8" novalidate>
-            <input type="hidden" name="form_name" value="RENEW Landing Page Callback Form">
-            <input type="hidden" name="cc_email" value="care@renewpainwellness.com">
-            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field" data-field="name">
               <label for="full-name">Full name</label>
               <input class="control" id="full-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
@@ -1276,12 +1252,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="field-error" id="phone-error">Enter a valid 10-digit US phone number.</p>
             </div>
 
+            <div class="field" data-field="email">
+              <label for="email">Email address</label>
+              <input class="control" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="email-error">
+              <p class="field-error" id="email-error">Please enter a valid email address.</p>
+            </div>
+
             <div class="field" data-field="time">
               <label for="best-time">Best time to call</label>
               <select class="control" id="best-time" name="best_time" required aria-describedby="time-error">
                 <option value="No preference">No preference</option>
-                <option value="Morning (8 AM–12 PM)">Morning (8 AM–12 PM)</option>
-                <option value="Afternoon (12 PM–4 PM)">Afternoon (12 PM–4 PM)</option>
+                <option value="Morning (8 AM-12 PM)">Morning (8 AM-12 PM)</option>
+                <option value="Afternoon (12 PM-4 PM)">Afternoon (12 PM-4 PM)</option>
               </select>
               <p class="field-error" id="time-error">Please choose the best time to call.</p>
             </div>
@@ -1292,9 +1274,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="">Select a topic</option>
                 <option value="Scheduling">Scheduling</option>
                 <option value="Insurance or payment">Insurance or payment</option>
-                <option value="General callback">General callback</option>
                 <option value="Existing appointment">Existing appointment</option>
-                <option value="Other">Other</option>
+                <option value="General callback">General callback</option>
               </select>
               <p class="field-error" id="reason-error">Please choose a callback topic.</p>
             </div>
@@ -1303,9 +1284,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="button-spinner" aria-hidden="true"></span>
               <span class="submit-label">Request a Callback</span>
             </button>
-            <p class="form-disclaimer">By submitting, you agree to be contacted about your request. Please do not include private or detailed medical information.</p>
+            <p class="form-disclaimer">Please do not include medical details. This form is for scheduling and callback coordination only.</p>
           </form>
-
         </div>
       </div>
     </section>
@@ -1483,6 +1463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const alertBox = document.getElementById("form-alert");
       const nameInput = document.getElementById("full-name");
       const phoneInput = document.getElementById("phone");
+      const emailInput = document.getElementById("email");
       const timeSelect = document.getElementById("best-time");
       const reasonSelect = document.getElementById("reason");
       const submitButton = form?.querySelector('button[type="submit"]');
@@ -1503,6 +1484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const rules = {
         name: () => nameInput.value.trim().length >= 2,
         phone: () => /^[2-9]\d{2}[2-9]\d{6}$/.test(digitsOnly(phoneInput.value)),
+        email: () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()),
         time: () => timeSelect.value.trim().length > 0,
         reason: () => reasonSelect.value.trim().length > 0
       };
@@ -1537,6 +1519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       [
         [nameInput, "name"],
         [phoneInput, "phone"],
+        [emailInput, "email"],
         [timeSelect, "time"],
         [reasonSelect, "reason"]
       ].forEach(([control, key]) => {
@@ -1557,12 +1540,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const isValid = results.every(Boolean);
 
         if (!isValid) {
+          alertBox.textContent = "Please correct the highlighted fields before submitting.";
           alertBox.classList.add("is-visible");
           alertBox.focus();
           const firstInvalid = form.querySelector('[aria-invalid="true"]');
           firstInvalid?.focus({ preventScroll: false });
           return;
         }
+
+        const phoneDigits = digitsOnly(phoneInput.value);
+        const formData = new FormData();
+        formData.append("form_name", "RENEW Landing Page Callback Form");
+        formData.append("full_name", nameInput.value.trim());
+        formData.append("phone", `+1 ${phoneDigits}`);
+        formData.append("email", emailInput.value.trim());
+        formData.append("best_time", timeSelect.value.trim());
+        formData.append("reason", reasonSelect.value.trim());
 
         alertBox.classList.remove("is-visible");
         isSubmitting = true;
@@ -1571,36 +1564,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         submitButton.classList.add("is-loading");
         submitLabel.textContent = "Sending...";
 
-        const originalPhone = phoneInput.value;
-        if (!originalPhone.startsWith('+1')) {
-          phoneInput.value = `+1 ${originalPhone}`;
-        }
-
-        const formData = new FormData(form);
         const webAppUrl = "https://script.google.com/macros/s/AKfycbwj9l3Dska5vWt7pIo6HpHCG93isE_-JUlw2wrvNW53QBKJDKyvbfgxB6ERo0ZmAR3F/exec";
 
         fetch(webAppUrl, {
           method: "POST",
           body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status === 'success') {
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
             window.location.href = "./thank-you/";
-          } else if (data.status === 'error') {
-            alert(data.message || "An error occurred.");
-            phoneInput.value = originalPhone;
-            submitLabel.textContent = "Request a Callback";
-            submitButton.disabled = false;
-            submitButton.classList.remove("is-loading");
-            form.removeAttribute("aria-busy");
-            isSubmitting = false;
+            return;
           }
+
+          throw new Error(data.message || "Form submission was not accepted.");
         })
-        .catch(error => {
-          console.error("Error submitting form:", error);
-          alert("A network error occurred. Please try again.");
-          phoneInput.value = originalPhone;
+        .catch(() => {
+          alertBox.textContent = "We could not send your request. Please try again or call (954) 256-9422.";
+          alertBox.classList.add("is-visible");
+          alertBox.focus();
           submitLabel.textContent = "Request a Callback";
           submitButton.disabled = false;
           submitButton.classList.remove("is-loading");
@@ -1608,6 +1590,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           isSubmitting = false;
         });
       });
+
     })();
   </script>
 </body>
